@@ -21,7 +21,6 @@ enum Query: String {
 
 typealias Queries = [Query : Language]
 
-
 final class NetworkService {
     static let shared = NetworkService()
     private init() {}

@@ -9,21 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject private var currencies = CurrenciesViewModel()
+    
     init() {
-        print("init content view")
-        NetworkService.shared.fetchCurrencies(with: [.language:.RU, .location:.LV]) { result in
-            switch result {
-            case .success(let data):
-                print(data)
-            case .failure(let error):
-                print("ERROR! --", error)
-            }
-        }
+        currencies.load()
     }
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        let currenciesList = self.currencies.list
+        let isLoading = self.currencies.isLoading
+        if isLoading {
+            ProgressView()
+        } else {
+            // Text(currenciesList.first?.description ?? "–").padding()
+            NavigationView {
+                ZStack(alignment: .leading, content: {
+                    // Color.black
+                    Text("January 5 2020")
+                    CurrencyListView(currencies: currenciesList)
+                })
+            }
+        }
     }
 }
 
