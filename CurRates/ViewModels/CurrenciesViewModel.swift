@@ -9,13 +9,13 @@ import Foundation
 
 class CurrenciesViewModel: ObservableObject {
     
-    var generalCurrencies = ["USD", "EUR"]
-    
     @Published var isLoading: Bool = false
     @Published var list: [CurrencyViewModel] = [CurrencyViewModel]()
+    var date: String {
+        return getCurrentDate()
+    }
     
     func load() {
-        
         isLoading = true
         NetworkService.shared.fetchCurrencies(with: [.language:.EN, .location:.LV]) { result in
             switch result {
@@ -29,5 +29,12 @@ class CurrenciesViewModel: ObservableObject {
                 self.isLoading = false
             }
         }
+    }
+    
+    func getCurrentDate() -> String {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d"
+        return formatter.string(from: today)
     }
 }

@@ -7,16 +7,19 @@
 
 import Foundation
 
+enum GeneralCurrency: String, Equatable, CaseIterable {
+    case EUR = "€"
+    case USD = "$"
+}
+
 struct CurrencyViewModel: Identifiable {
     
-    /* Make here all calculation with reverseUSDQuot */
-    
-    let currency: Currency
-    var generalCurrency: String
+    private let currency: Currency
+    var generalCurrency: GeneralCurrency
     
     init(currency: Currency) {
         self.currency = currency
-        self.generalCurrency = "USD"
+        self.generalCurrency = .USD
     }
     
     var id: String {
@@ -28,36 +31,50 @@ struct CurrencyViewModel: Identifiable {
     }
     
     var sell: String {
-        let index = generalCurrency == "EUR" ? 0 : 1
-        if currency.reverseUsdQuot {
-            return reverseDomesticFrom(usd: currency.rates[index].sellTransfer)
-        }
-        return roundCurrency(currency.rates[index].sellTransfer)
+        return currencyPrice(.sell)
     }
     
     var buy: String {
-        let index = generalCurrency == "EUR" ? 0 : 1
+        return currencyPrice(.buy)
+    }
+    
+    private enum Transfer: String {
+        case sell
+        case buy
+    }
+    
+    private func currencyPrice(_ transfer: Transfer) -> String {
+        guard var price = getCurrencyPrice(transfer) else { return "" }
         if currency.reverseUsdQuot {
-            return reverseDomesticFrom(usd: currency.rates[index].buyTransfer)
+            reverseDomesticFrom(usd: &price)
+        } else {
+            roundCurrency(&price)
         }
-        return roundCurrency(currency.rates[index].buyTransfer)
+        return price
     }
     
-    // func currencyRates(_ rates: [Rate]) -> String {
-    //
-    // }
-    
-    func roundCurrency(_ value: String?) -> String {
-        guard let strValue = value, let floatValue = Float(strValue) else { return "" }
-        return String(format: "%.3f", floatValue)
+    private func getCurrencyPrice(_ transfer: Transfer) -> String? {
+        let index = generalCurrency == .USD ? 1 : 0
+        
+        switch transfer {
+        case .buy:
+            return currency.rates[index].sellTransfer
+        case .sell:
+            return currency.rates[index].buyRate
+        }
     }
     
-    func reverseDomesticFrom(usd value: String?) -> String {
-        guard let strValue = value, let floatValue = Float(strValue) else { return "" }
-        return String(format: "%.3f", 1 / floatValue)
+    private func roundCurrency(_ value: inout String) {
+        guard let floatValue = Float(value) else { return }
+        value = String(format: "%.3f", floatValue)
     }
     
-    mutating func updateGeneralCurrency(_ currency: String) {
+    private func reverseDomesticFrom(usd value: inout String) {
+        guard let floatValue = Float(value) else { return }
+        value = String(format: "%.3f", 1 / floatValue)
+    }
+    
+    mutating func updateGeneralCurrency(_ currency: GeneralCurrency) {
         self.generalCurrency = currency
     }
 }
