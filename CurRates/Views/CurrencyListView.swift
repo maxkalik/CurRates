@@ -14,7 +14,13 @@ struct CurrencyListView: View {
     
     var body: some View {
         List(currencies) { currency in
-            CurrencyCellView(currency: currency, generalCurrency: generalCurrency)
+            
+            ZStack {
+                CurrencyCellView(currency: currency, generalCurrency: generalCurrency)
+                // NavigationLink(destination: CurrencyDetailsView()) {
+                //     EmptyView()
+                // }.hidden()
+            }
         }
     }
 }

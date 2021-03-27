@@ -30,9 +30,9 @@ struct ContentView: View {
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, generalCurrency: $generalCurrency)
-                    .navigationBarTitle(Text(currenciesViewModel.date), displayMode: .large)
+                    .navigationBarTitle(Text("Currencies"), displayMode: .large)
                     .navigationBarItems(leading:
-                                            Text("Currencies")
+                                            Text(currenciesViewModel.date)
                                             .fontWeight(.bold)
                                             .font(.system(size: 22))
                                             .padding(.bottom, 4),
