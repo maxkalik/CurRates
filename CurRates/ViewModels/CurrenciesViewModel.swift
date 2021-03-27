@@ -9,17 +9,18 @@ import Foundation
 
 class CurrenciesViewModel: ObservableObject {
     
-    @Published var searchTerm: String = ""
-    @Published var list: [CurrencyViewModel] = [CurrencyViewModel]()
+    var generalCurrencies = ["USD", "EUR"]
+    
     @Published var isLoading: Bool = false
+    @Published var list: [CurrencyViewModel] = [CurrencyViewModel]()
     
     func load() {
+        
         isLoading = true
         NetworkService.shared.fetchCurrencies(with: [.language:.EN, .location:.LV]) { result in
             switch result {
             case .success(let currencies):
                 DispatchQueue.main.async {
-                    // self.list = currencies.data
                     self.list = currencies.data.map(CurrencyViewModel.init)
                     self.isLoading = false
                 }

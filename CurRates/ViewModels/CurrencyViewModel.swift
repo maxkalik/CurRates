@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct CurrencyViewModel {
+struct CurrencyViewModel: Identifiable {
     
     /* Make here all calculation with reverseUSDQuot */
     
     let currency: Currency
+    var generalCurrency: String
+    
+    init(currency: Currency) {
+        self.currency = currency
+        self.generalCurrency = "USD"
+    }
     
     var id: String {
         return currency.id
@@ -22,10 +28,36 @@ struct CurrencyViewModel {
     }
     
     var sell: String {
-        return currency.rates.first?.sellRate ?? "–"
+        let index = generalCurrency == "EUR" ? 0 : 1
+        if currency.reverseUsdQuot {
+            return reverseDomesticFrom(usd: currency.rates[index].sellTransfer)
+        }
+        return roundCurrency(currency.rates[index].sellTransfer)
     }
     
     var buy: String {
-        return currency.rates.first?.buyRate ?? "–"
+        let index = generalCurrency == "EUR" ? 0 : 1
+        if currency.reverseUsdQuot {
+            return reverseDomesticFrom(usd: currency.rates[index].buyTransfer)
+        }
+        return roundCurrency(currency.rates[index].buyTransfer)
+    }
+    
+    // func currencyRates(_ rates: [Rate]) -> String {
+    //
+    // }
+    
+    func roundCurrency(_ value: String?) -> String {
+        guard let strValue = value, let floatValue = Float(strValue) else { return "" }
+        return String(format: "%.3f", floatValue)
+    }
+    
+    func reverseDomesticFrom(usd value: String?) -> String {
+        guard let strValue = value, let floatValue = Float(strValue) else { return "" }
+        return String(format: "%.3f", 1 / floatValue)
+    }
+    
+    mutating func updateGeneralCurrency(_ currency: String) {
+        self.generalCurrency = currency
     }
 }

@@ -8,18 +8,7 @@
 import Foundation
 
 
-enum Language: String {
-    case LV
-    case EN
-    case RU
-}
 
-enum Query: String {
-    case language
-    case location
-}
-
-typealias Queries = [Query : Language]
 
 final class NetworkService {
     static let shared = NetworkService()
@@ -37,6 +26,18 @@ final class NetworkService {
         case decodeError
     }
     
+    enum Language: String {
+        case LV
+        case EN
+        case RU
+    }
+
+    enum Query: String {
+        case language
+        case location
+    }
+
+    typealias Queries = [Query : Language]
     
     private func prepareQueries(_ queries: Queries, in url: URL?) -> URL? {
         guard let url = url else {
