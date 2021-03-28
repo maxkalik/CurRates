@@ -31,7 +31,7 @@ struct Currency: Decodable {
 }
 
 extension Currency {
-    typealias CurrencyType = (RateType, RateAction)
+    private typealias CurrencyType = (RateType, RateAction)
     
     func price(_ rateType: RateType, _ rateAction: RateAction, unit: CurrencyUnit? = nil) -> String {
         let currencyType: CurrencyType = (rateType, rateAction)
@@ -44,7 +44,7 @@ extension Currency {
         }
     }
     
-    func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: CurrencyUnit) -> String {
+    private func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: CurrencyUnit) -> String {
         guard let price = getCurrency(currencyType, from: rates[rateIndex]), let floatValue = Float(price) else { return "" }
         return String(format: "%.3f", reverseUsdQuot && currencyUnit == .USD ? 1 / floatValue : floatValue)
     }

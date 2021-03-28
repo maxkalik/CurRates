@@ -5,7 +5,8 @@
 //  Created by Maksim Kalik on 3/25/21.
 //
 
-import Foundation
+import SwiftUI
+import WidgetKit
 
 enum CurrencyUnit: String, Equatable, CaseIterable {
     case EUR = "€"
@@ -71,5 +72,13 @@ class CurrencyViewModel: Identifiable, ObservableObject {
                     buy: currency.price(.rate, .buy, unit: .EUR)
             )
         ]
+    }
+    
+    @AppStorage("currency", store: UserDefaults(suiteName: "group.maxkalik.com.CurRates.Currencies")) var currencyData = Data()
+    
+    func showAtWidget(currencyId id: String) {
+        guard let data = try? JSONEncoder().encode(id) else { return }
+        currencyData = data
+        WidgetCenter.shared.reloadTimelines(ofKind: "CurRatesWidget")
     }
 }

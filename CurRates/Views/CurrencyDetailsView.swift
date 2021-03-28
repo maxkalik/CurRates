@@ -33,8 +33,21 @@ struct CurrencyDetailsView: View {
                     ValueLineView(title: "BUY", value: detail.buy)
                 }.frame(width: 260).padding(.top, 10)
             }
+            Divider()
+                .padding(.bottom, 20)
+            Button(action: {
+                currency.showAtWidget(currencyId: currency.id)
+            }, label: {
+                Text("Show at Widget")
+            })
+            .padding(.horizontal, 30)
+            .padding(.vertical, 16)
+            .foregroundColor(Color(.systemBackground))
+            .background(Color(.systemBlue))
+            .clipShape(Capsule())
         }
-            .padding(.top, 1)
+        .padding(.top, 1)
+        .padding(.bottom, 30)
     }
 }
 

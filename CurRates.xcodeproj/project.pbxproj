@@ -22,11 +22,51 @@
 		11ADFEE3260FB852006AC0AB /* CurrencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEE2260FB852006AC0AB /* CurrencyCellView.swift */; };
 		11ADFEEE260FC5C1006AC0AB /* CurrencyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEED260FC5C1006AC0AB /* CurrencyDetailsView.swift */; };
 		11ADFEFC260FFF50006AC0AB /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEFB260FFF50006AC0AB /* PreviewData.swift */; };
+		11B6F0432610D5720059ECA1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B6F0422610D5720059ECA1 /* WidgetKit.framework */; };
+		11B6F0452610D5730059ECA1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B6F0442610D5720059ECA1 /* SwiftUI.framework */; };
+		11B6F0482610D5730059ECA1 /* CurRatesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0472610D5730059ECA1 /* CurRatesWidget.swift */; };
+		11B6F04A2610D5730059ECA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6F0492610D5730059ECA1 /* Assets.xcassets */; };
+		11B6F04E2610D5730059ECA1 /* CurRatesWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11B6F0562610D5FF0059ECA1 /* CurRatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */; };
+		11B6F0592610D6090059ECA1 /* CurRatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */; };
+		11B6F0662610DAF00059ECA1 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBE260BBEF30051D0AE /* URLSession.swift */; };
+		11B6F06B2610DBAD0059ECA1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC3260BC90E0051D0AE /* Currency.swift */; };
+		11B6F06C2610DBAD0059ECA1 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7ECA260BCADE0051D0AE /* Currencies.swift */; };
+		11B6F06D2610DBAD0059ECA1 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC7260BCABC0051D0AE /* Rate.swift */; };
+		11B6F0712610DC060059ECA1 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */; };
+		11B6F0762610E0740059ECA1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBA260BBC350051D0AE /* NetworkService.swift */; };
+		11B6F0792610E5840059ECA1 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEFB260FFF50006AC0AB /* PreviewData.swift */; };
 		11BE5C84260D3BC1009A87D7 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C83260D3BC1009A87D7 /* CurrencyListView.swift */; };
 		11BE5C87260D3BE6009A87D7 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */; };
 		11BE5C96260E01E0009A87D7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C95260E01E0009A87D7 /* SearchBar.swift */; };
 		11BE5C9A260E0394009A87D7 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */; };
+		11FC0D372610F63400A33835 /* MiniRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D362610F63400A33835 /* MiniRatesView.swift */; };
+		11FC0D3A2610F64C00A33835 /* MiniRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D362610F63400A33835 /* MiniRatesView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11B6F04C2610D5730059ECA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110E7E9C260BB8A90051D0AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11B6F03F2610D5720059ECA1;
+			remoteInfo = CurRatesWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11B6F0522610D5730059ECA1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				11B6F04E2610D5730059ECA1 /* CurRatesWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		110E7EA4260BB8A90051D0AE /* CurRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +86,20 @@
 		11ADFEE2260FB852006AC0AB /* CurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellView.swift; sourceTree = "<group>"; };
 		11ADFEED260FC5C1006AC0AB /* CurrencyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailsView.swift; sourceTree = "<group>"; };
 		11ADFEFB260FFF50006AC0AB /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CurRatesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		11B6F0422610D5720059ECA1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		11B6F0442610D5720059ECA1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		11B6F0472610D5730059ECA1 /* CurRatesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesWidget.swift; sourceTree = "<group>"; };
+		11B6F0492610D5730059ECA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11B6F04B2610D5730059ECA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesProvider.swift; sourceTree = "<group>"; };
+		11B6F05C2610D68D0059ECA1 /* CurRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurRates.entitlements; sourceTree = "<group>"; };
+		11B6F05F2610D7280059ECA1 /* CurRatesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurRatesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		11BE5C83260D3BC1009A87D7 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		11BE5C95260E01E0009A87D7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
+		11FC0D362610F63400A33835 /* MiniRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniRatesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +110,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11B6F03D2610D5720059ECA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B6F0452610D5730059ECA1 /* SwiftUI.framework in Frameworks */,
+				11B6F0432610D5720059ECA1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		110E7E9B260BB8A90051D0AE = {
 			isa = PBXGroup;
 			children = (
+				11B6F0622610DACA0059ECA1 /* Shared */,
+				11B6F05F2610D7280059ECA1 /* CurRatesWidgetExtension.entitlements */,
 				110E7EA6260BB8A90051D0AE /* CurRates */,
+				11B6F0462610D5730059ECA1 /* CurRatesWidget */,
+				11B6F0412610D5720059ECA1 /* Frameworks */,
 				110E7EA5260BB8A90051D0AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				110E7EA4260BB8A90051D0AE /* CurRates.app */,
+				11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,12 +146,9 @@
 		110E7EA6260BB8A90051D0AE /* CurRates */ = {
 			isa = PBXGroup;
 			children = (
-				11ADFEF9260FFA74006AC0AB /* Shared */,
+				11B6F05C2610D68D0059ECA1 /* CurRates.entitlements */,
 				11ADFED9260E6F19006AC0AB /* Modifiers */,
 				11BE5C98260E0383009A87D7 /* Utils */,
-				110E7EBD260BBED50051D0AE /* Extension */,
-				110E7EB9260BBBDC0051D0AE /* Services */,
-				110E7EC2260BC8E40051D0AE /* Models */,
 				110E7EDB260C01DC0051D0AE /* ViewModels */,
 				110E7EDC260C01E50051D0AE /* Views */,
 				110E7EA9260BB8A90051D0AE /* ContentView.swift */,
@@ -118,6 +179,7 @@
 		110E7EBD260BBED50051D0AE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				11ADFEFB260FFF50006AC0AB /* PreviewData.swift */,
 				110E7EBE260BBEF30051D0AE /* URLSession.swift */,
 			);
 			path = Extension;
@@ -137,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				110E7EDD260C01FC0051D0AE /* CurrenciesViewModel.swift */,
-				11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */,
 				11BE5C95260E01E0009A87D7 /* SearchBar.swift */,
 			);
 			path = ViewModels;
@@ -162,12 +223,44 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		11ADFEF9260FFA74006AC0AB /* Shared */ = {
+		11B6F0412610D5720059ECA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11ADFEFB260FFF50006AC0AB /* PreviewData.swift */,
+				11B6F0422610D5720059ECA1 /* WidgetKit.framework */,
+				11B6F0442610D5720059ECA1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		11B6F0462610D5730059ECA1 /* CurRatesWidget */ = {
+			isa = PBXGroup;
+			children = (
+				11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */,
+				11B6F0472610D5730059ECA1 /* CurRatesWidget.swift */,
+				11B6F0492610D5730059ECA1 /* Assets.xcassets */,
+				11B6F04B2610D5730059ECA1 /* Info.plist */,
+			);
+			path = CurRatesWidget;
+			sourceTree = "<group>";
+		};
+		11B6F0622610DACA0059ECA1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				11FC0D352610F61C00A33835 /* Views */,
+				11B6F0702610DBEC0059ECA1 /* ViewModels */,
+				110E7EC2260BC8E40051D0AE /* Models */,
+				110E7EBD260BBED50051D0AE /* Extension */,
+				110E7EB9260BBBDC0051D0AE /* Services */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		11B6F0702610DBEC0059ECA1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		11BE5C98260E0383009A87D7 /* Utils */ = {
@@ -176,6 +269,14 @@
 				11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		11FC0D352610F61C00A33835 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11FC0D362610F63400A33835 /* MiniRatesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,15 +289,34 @@
 				110E7EA0260BB8A90051D0AE /* Sources */,
 				110E7EA1260BB8A90051D0AE /* Frameworks */,
 				110E7EA2260BB8A90051D0AE /* Resources */,
+				11B6F0522610D5730059ECA1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				11B6F04D2610D5730059ECA1 /* PBXTargetDependency */,
 			);
 			name = CurRates;
 			productName = CurRates;
 			productReference = 110E7EA4260BB8A90051D0AE /* CurRates.app */;
 			productType = "com.apple.product-type.application";
+		};
+		11B6F03F2610D5720059ECA1 /* CurRatesWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11B6F04F2610D5730059ECA1 /* Build configuration list for PBXNativeTarget "CurRatesWidgetExtension" */;
+			buildPhases = (
+				11B6F03C2610D5720059ECA1 /* Sources */,
+				11B6F03D2610D5720059ECA1 /* Frameworks */,
+				11B6F03E2610D5720059ECA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CurRatesWidgetExtension;
+			productName = CurRatesWidgetExtension;
+			productReference = 11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -208,6 +328,9 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					110E7EA3260BB8A90051D0AE = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					11B6F03F2610D5720059ECA1 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -226,6 +349,7 @@
 			projectRoot = "";
 			targets = (
 				110E7EA3260BB8A90051D0AE /* CurRates */,
+				11B6F03F2610D5720059ECA1 /* CurRatesWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +364,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11B6F03E2610D5720059ECA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B6F04A2610D5730059ECA1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -248,7 +380,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BE5C9A260E0394009A87D7 /* ViewControllerResolver.swift in Sources */,
+				11B6F0562610D5FF0059ECA1 /* CurRatesProvider.swift in Sources */,
 				110E7EAA260BB8A90051D0AE /* ContentView.swift in Sources */,
+				11FC0D372610F63400A33835 /* MiniRatesView.swift in Sources */,
 				11ADFEE0260FB2E9006AC0AB /* SegmentedPickerView.swift in Sources */,
 				11BE5C87260D3BE6009A87D7 /* CurrencyViewModel.swift in Sources */,
 				110E7ECB260BCADE0051D0AE /* Currencies.swift in Sources */,
@@ -267,7 +401,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11B6F03C2610D5720059ECA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B6F06C2610DBAD0059ECA1 /* Currencies.swift in Sources */,
+				11B6F0712610DC060059ECA1 /* CurrencyViewModel.swift in Sources */,
+				11B6F0762610E0740059ECA1 /* NetworkService.swift in Sources */,
+				11FC0D3A2610F64C00A33835 /* MiniRatesView.swift in Sources */,
+				11B6F0482610D5730059ECA1 /* CurRatesWidget.swift in Sources */,
+				11B6F06B2610DBAD0059ECA1 /* Currency.swift in Sources */,
+				11B6F0792610E5840059ECA1 /* PreviewData.swift in Sources */,
+				11B6F06D2610DBAD0059ECA1 /* Rate.swift in Sources */,
+				11B6F0662610DAF00059ECA1 /* URLSession.swift in Sources */,
+				11B6F0592610D6090059ECA1 /* CurRatesProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11B6F04D2610D5730059ECA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11B6F03F2610D5720059ECA1 /* CurRatesWidgetExtension */;
+			targetProxy = 11B6F04C2610D5730059ECA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		110E7EB1260BB8AA0051D0AE /* Debug */ = {
@@ -389,8 +548,10 @@
 		110E7EB4260BB8AA0051D0AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CurRates/CurRates.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CurRates/Preview Content\"";
 				DEVELOPMENT_TEAM = P353H6D448;
@@ -411,8 +572,10 @@
 		110E7EB5260BB8AA0051D0AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CurRates/CurRates.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CurRates/Preview Content\"";
 				DEVELOPMENT_TEAM = P353H6D448;
@@ -425,6 +588,50 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = maxkalik.com.CurRates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		11B6F0502610D5730059ECA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CurRatesWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P353H6D448;
+				INFOPLIST_FILE = CurRatesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = maxkalik.com.CurRates.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11B6F0512610D5730059ECA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CurRatesWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P353H6D448;
+				INFOPLIST_FILE = CurRatesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = maxkalik.com.CurRates.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,6 +654,15 @@
 			buildConfigurations = (
 				110E7EB4260BB8AA0051D0AE /* Debug */,
 				110E7EB5260BB8AA0051D0AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11B6F04F2610D5730059ECA1 /* Build configuration list for PBXNativeTarget "CurRatesWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11B6F0502610D5730059ECA1 /* Debug */,
+				11B6F0512610D5730059ECA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
