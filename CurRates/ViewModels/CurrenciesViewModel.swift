@@ -10,6 +10,7 @@ import Foundation
 class CurrenciesViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
+    @Published var isError: Bool = false
     @Published var list: [CurrencyViewModel] = [CurrencyViewModel]()
     var date: String {
         return getCurrentDate()
@@ -17,7 +18,7 @@ class CurrenciesViewModel: ObservableObject {
     
     func load() {
         isLoading = true
-        NetworkService.shared.fetchCurrencies(with: [.language:.EN, .location:.LV]) { result in
+        NetworkService.shared.fetchCurrencies(with: [.language: .EN, .location: .LV]) { result in
             switch result {
             case .success(let currencies):
                 DispatchQueue.main.async {
@@ -25,7 +26,8 @@ class CurrenciesViewModel: ObservableObject {
                     self.isLoading = false
                 }
             case .failure(let error):
-                print("ERROR! --", error)
+                print(error.localizedDescription)
+                self.isError = true
                 self.isLoading = false
             }
         }
@@ -36,5 +38,11 @@ class CurrenciesViewModel: ObservableObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM d"
         return formatter.string(from: today)
+    }
+    
+    func getCurrencies(_ searchText: String) -> [CurrencyViewModel] {
+        return searchText.isEmpty ? list : list.filter {
+            $0.id.localizedStandardContains(searchText) || $0.description.localizedStandardContains(searchText)
+        }
     }
 }
