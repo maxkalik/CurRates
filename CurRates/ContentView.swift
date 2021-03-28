@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @ObservedObject private var searchBar: SearchBar = SearchBar()
-    @State var unit: CurrencyUnit = .USD
+    @State var unit: CurrencyUnit = .EUR
     
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
