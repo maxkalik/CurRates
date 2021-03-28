@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CurrencyCellView: View {
-    var currency: CurrencyViewModel
+    @ObservedObject var currency: CurrencyViewModel
     
     init(currency: CurrencyViewModel, generalCurrency: GeneralCurrency) {
         self.currency = currency
@@ -29,9 +29,9 @@ struct CurrencyCellView: View {
             Spacer()
             if !(currency.transferBuy.isEmpty && currency.transferSell.isEmpty) {
                 VStack {
-                    RateView(title: "Buy", value: currency.transferBuy)
-                        .padding(.bottom, 1)
                     RateView(title: "Sell", value: currency.transferSell)
+                        .padding(.bottom, 1)
+                    RateView(title: "Buy", value: currency.transferBuy)
                 }
             } else {
                 Text("—")

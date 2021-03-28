@@ -12,14 +12,12 @@ enum GeneralCurrency: String, Equatable, CaseIterable {
     case USD = "$"
 }
 
-struct CurrencyViewModel: Identifiable {
+class CurrencyViewModel: Identifiable, ObservableObject {
     
-    private let currency: Currency
-    private var generalCurrency: GeneralCurrency
+    @Published private var currency: Currency
     
     init(currency: Currency) {
         self.currency = currency
-        self.generalCurrency = .USD
     }
     
     var id: String {
@@ -31,22 +29,22 @@ struct CurrencyViewModel: Identifiable {
     }
     
     var transferSell: String {
-        return currency.price(.transfer, .sell, with: generalCurrency)
+        return currency.price(.transfer, .sell)
     }
     
     var transferBuy: String {
-        return currency.price(.transfer, .buy, with: generalCurrency)
+        return currency.price(.transfer, .buy)
     }
     
     var rateSell: String {
-        return currency.price(.rate, .sell, with: generalCurrency)
+        return currency.price(.rate, .sell)
     }
     
     var rateBuy: String {
-        return currency.price(.rate, .buy, with: generalCurrency)
+        return currency.price(.rate, .buy)
     }
     
-    mutating func updateGeneralCurrency(_ currency: GeneralCurrency) {
-        self.generalCurrency = currency
+    func updateGeneralCurrency(_ currency: GeneralCurrency) {
+        self.currency.updateGeneralCurrency(generalCurrency: currency)
     }
 }

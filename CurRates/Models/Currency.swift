@@ -12,6 +12,12 @@ struct Currency: Decodable {
     let description: String
     let reverseUsdQuot: Bool
     let rates: [Rate]
+    
+    var generalCurrency: GeneralCurrency = .USD
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, description, reverseUsdQuot, rates
+    }
 }
 
 extension Currency {
@@ -27,8 +33,8 @@ extension Currency {
     
     typealias CurrencyType = (RateType, RateAction)
     
-    func price(_ rateType: RateType, _ rateAction: RateAction, with generalCurrency: GeneralCurrency? = nil) -> String {
-        let i = generalCurrency == .USD ? 1 : 0
+    func price(_ rateType: RateType, _ rateAction: RateAction) -> String {
+        let i = self.generalCurrency == .USD ? 1 : 0
         let currencyType: CurrencyType = (rateType, rateAction)
         guard var price = getCurrency(currencyType, from: rates[i]) else { return "" }
         roundCurrency(&price)
@@ -51,5 +57,9 @@ extension Currency {
     private func roundCurrency(_ value: inout String) {
         guard let floatValue = Float(value) else { return }
         value = String(format: "%.3f", reverseUsdQuot ? 1 / floatValue : floatValue)
+    }
+    
+    mutating func updateGeneralCurrency(generalCurrency: GeneralCurrency) {
+        self.generalCurrency = generalCurrency
     }
 }
