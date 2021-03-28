@@ -10,12 +10,12 @@ import SwiftUI
 struct CurrencyListView: View {
     
     let currencies: [CurrencyViewModel]
-    @Binding var generalCurrency: GeneralCurrency
+    @Binding var unit: CurrencyUnit
     
     var body: some View {
         List(currencies) { currency in
             ZStack {
-                CurrencyCellView(currency: currency, generalCurrency: generalCurrency)
+                CurrencyCellView(currency: currency, unit: unit)
                 NavigationLink(destination: CurrencyDetailsView(currency: currency)) {
                     EmptyView()
                 }.hidden()
@@ -26,6 +26,6 @@ struct CurrencyListView: View {
 
 struct CurrencyView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyListView(currencies: [CurrencyViewModel(currency: Currency.aud)], generalCurrency: .constant(.USD))
+        CurrencyListView(currencies: [CurrencyViewModel(currency: Currency.aud)], unit: .constant(.USD))
     }
 }

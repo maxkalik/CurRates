@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @ObservedObject private var searchBar: SearchBar = SearchBar()
-    @State var generalCurrency: GeneralCurrency = .USD
+    @State var unit: CurrencyUnit = .USD
     
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
@@ -29,14 +29,14 @@ struct ContentView: View {
             ProgressView()
         } else {
             NavigationView {
-                CurrencyListView(currencies: currenciesList, generalCurrency: $generalCurrency)
+                CurrencyListView(currencies: currenciesList, unit: $unit)
                     .navigationBarTitle(Text("Currencies"), displayMode: .large)
                     .navigationBarItems(leading:
                                             Text(currenciesViewModel.date)
                                             .fontWeight(.bold)
                                             .font(.system(size: 22))
                                             .padding(.bottom, 4),
-                                        trailing: SegmentedPickerView(generalCurrency: $generalCurrency))
+                                        trailing: SegmentedPickerView(unit: $unit))
                     .add(self.searchBar)
             }
             .navigationViewStyle(StackNavigationViewStyle())

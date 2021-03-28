@@ -7,12 +7,20 @@
 
 import Foundation
 
-enum GeneralCurrency: String, Equatable, CaseIterable {
+enum CurrencyUnit: String, Equatable, CaseIterable {
     case EUR = "€"
     case USD = "$"
 }
 
 class CurrencyViewModel: Identifiable, ObservableObject {
+    
+    struct Details: Identifiable {
+        var unitTitle: String
+        var rateTypeTitle: String
+        var sell: String
+        var buy: String
+        var id: UUID = UUID()
+    }
     
     @Published private var currency: Currency
     
@@ -28,23 +36,40 @@ class CurrencyViewModel: Identifiable, ObservableObject {
         return currency.description
     }
     
-    var transferSell: String {
+    var sell: String {
         return currency.price(.transfer, .sell)
     }
     
-    var transferBuy: String {
+    var buy: String {
         return currency.price(.transfer, .buy)
     }
     
-    var rateSell: String {
-        return currency.price(.rate, .sell)
+    func updateCurrencyUnit(_ currency: CurrencyUnit) {
+        self.currency.updateCurrencyUnit(unit: currency)
     }
     
-    var rateBuy: String {
-        return currency.price(.rate, .buy)
-    }
-    
-    func updateGeneralCurrency(_ currency: GeneralCurrency) {
-        self.currency.updateGeneralCurrency(generalCurrency: currency)
+    var details: [Details] {
+        return [
+            Details(unitTitle: "USD",
+                    rateTypeTitle: "Transfer",
+                    sell: currency.price(.transfer, .sell, unit: .USD),
+                    buy: currency.price(.transfer, .buy, unit: .USD)
+            ),
+            Details(unitTitle: "USD",
+                    rateTypeTitle: "Rate",
+                    sell: currency.price(.rate, .sell, unit: .USD),
+                    buy: currency.price(.rate, .buy, unit: .USD)
+            ),
+            Details(unitTitle: "EUR",
+                    rateTypeTitle: "Transfer",
+                    sell: currency.price(.transfer, .sell, unit: .EUR),
+                    buy: currency.price(.transfer, .buy, unit: .EUR)
+            ),
+            Details(unitTitle: "EUR",
+                    rateTypeTitle: "Rate",
+                    sell: currency.price(.rate, .sell, unit: .EUR),
+                    buy: currency.price(.rate, .buy, unit: .EUR)
+            )
+        ]
     }
 }

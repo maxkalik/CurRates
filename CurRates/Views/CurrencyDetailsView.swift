@@ -11,7 +11,6 @@ import SwiftUI
 struct CurrencyDetailsView: View {
     
     var currency: CurrencyViewModel
-    // @State var generalCurrency: GeneralCurrency
     
     init(currency: CurrencyViewModel) {
         self.currency = currency
@@ -26,18 +25,14 @@ struct CurrencyDetailsView: View {
                 .font(.system(size: 24))
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)
-            Divider()
-            VStack {
-                ValueHeadingView(leftTitle: "USD", rightTitle: "Transfer")
-                ValueLineView(title: "SELL", value: currency.transferSell)
-                ValueLineView(title: "BUY", value: currency.transferBuy)
-            }.frame(width: 260).padding(.top, 10)
-            Divider()
-            VStack {
-                ValueHeadingView(leftTitle: "USD", rightTitle: "Rate")
-                ValueLineView(title: "SELL", value: currency.rateSell)
-                ValueLineView(title: "BUY", value: currency.rateBuy)
-            }.frame(width: 260).padding(.top, 10)
+            ForEach(currency.details) { detail in
+                Divider()
+                VStack {
+                    ValueHeadingView(leftTitle: detail.unitTitle, rightTitle: detail.rateTypeTitle)
+                    ValueLineView(title: "SELL", value: detail.sell)
+                    ValueLineView(title: "BUY", value: detail.buy)
+                }.frame(width: 260).padding(.top, 10)
+            }
         }
             .padding(.top, 1)
             // .navigationBarItems(trailing: SegmentedPickerView(generalCurrency: $generalCurrency))

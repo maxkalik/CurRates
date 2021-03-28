@@ -10,9 +10,9 @@ import SwiftUI
 struct CurrencyCellView: View {
     @ObservedObject var currency: CurrencyViewModel
     
-    init(currency: CurrencyViewModel, generalCurrency: GeneralCurrency) {
+    init(currency: CurrencyViewModel, unit: CurrencyUnit) {
         self.currency = currency
-        self.currency.updateGeneralCurrency(generalCurrency)
+        self.currency.updateCurrencyUnit(unit)
     }
     
     var body: some View {
@@ -27,11 +27,11 @@ struct CurrencyCellView: View {
             }
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
             Spacer()
-            if !(currency.transferBuy.isEmpty && currency.transferSell.isEmpty) {
+            if !(currency.buy.isEmpty && currency.sell.isEmpty) {
                 VStack {
-                    RateView(title: "Sell", value: currency.transferSell)
+                    RateView(title: "Sell", value: currency.sell)
                         .padding(.bottom, 1)
-                    RateView(title: "Buy", value: currency.transferBuy)
+                    RateView(title: "Buy", value: currency.buy)
                 }
             } else {
                 Text("—")
@@ -44,7 +44,7 @@ struct CurrencyCellView: View {
 
 struct CurrencyCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyCellView(currency: CurrencyViewModel(currency: Currency.aud), generalCurrency: .USD)
+        CurrencyCellView(currency: CurrencyViewModel(currency: Currency.aud), unit: .USD)
     }
 }
 
