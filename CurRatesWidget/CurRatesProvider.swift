@@ -9,10 +9,7 @@ import SwiftUI
 
 public class CureRatesProvider {
     
-    @AppStorage("currency", store: UserDefaults(suiteName: "group.maxkalik.com.CurRates.Currencies")) var currencyData = Data()
-    
     static func getCurrency(by id: String, completion: @escaping (CurrencyViewModel) -> Void) {
-        print("getCurrency id: ", id)
         NetworkService.shared.fetchCurrencies(with: [.language:.EN, .location:.LV]) { result in
             switch result {
             case .success(let currencies):

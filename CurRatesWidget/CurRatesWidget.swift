@@ -15,7 +15,7 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.aud))
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return }
         CureRatesProvider.getCurrency(by: id) { currency in
@@ -23,7 +23,7 @@ struct Provider: TimelineProvider {
             completion(entry)
         }
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
         guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return }
@@ -51,18 +51,7 @@ struct CurRatesWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack(alignment: .center) {
-            VStack(alignment: .center) {
-                Text(entry.currency.id)
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                Text(entry.currency.description)
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-            }
-            .padding(.bottom, 2)
-            MiniRatesView(buy: entry.currency.buy, sell: entry.currency.sell, reversed: true)
-        }
+        CurRatesWidgetView(currency: entry.currency)
     }
 }
 

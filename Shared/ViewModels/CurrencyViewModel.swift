@@ -23,10 +23,14 @@ class CurrencyViewModel: Identifiable, ObservableObject {
         var id: UUID = UUID()
     }
     
+    var isOnWidgetSelected = false
+    
+    @AppStorage(Constants.appStorageKey, store: UserDefaults(suiteName: Constants.suiteName)) var currencyData = Data()
     @Published private var currency: Currency
     
     init(currency: Currency) {
         self.currency = currency
+        isOnWidgetSelected = currency.id == getCurrencyId()
     }
     
     var id: String {
@@ -74,7 +78,10 @@ class CurrencyViewModel: Identifiable, ObservableObject {
         ]
     }
     
-    @AppStorage("currency", store: UserDefaults(suiteName: "group.maxkalik.com.CurRates.Currencies")) var currencyData = Data()
+    func getCurrencyId() -> String {
+        guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return Constants.defaultCurencyOnWidget }
+        return id
+    }
     
     func showAtWidget(currencyId id: String) {
         guard let data = try? JSONEncoder().encode(id) else { return }

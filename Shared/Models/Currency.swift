@@ -23,7 +23,7 @@ struct Currency: Decodable {
     let reverseUsdQuot: Bool
     let rates: [Rate]
     
-    var unit: CurrencyUnit = .USD
+    var unit: CurrencyUnit = .EUR
     
     private enum CodingKeys: String, CodingKey {
         case id, description, reverseUsdQuot, rates
