@@ -37,4 +37,10 @@ class CurrenciesViewModel: ObservableObject {
         formatter.dateFormat = "MMMM d"
         return formatter.string(from: today)
     }
+    
+    func getCurrencies(_ searchText: String) -> [CurrencyViewModel] {
+        return searchText.isEmpty ? list : list.filter {
+            $0.id.localizedStandardContains(searchText)
+        }
+    }
 }

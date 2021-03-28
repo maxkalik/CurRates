@@ -21,9 +21,7 @@ struct ContentView: View {
 
     var body: some View {
 
-        let currenciesList = searchBar.text.isEmpty ? currenciesViewModel.list : currenciesViewModel.list.filter {
-            $0.id.localizedStandardContains(searchBar.text)
-        }
+        let currenciesList = currenciesViewModel.getCurrencies(searchBar.text)
 
         if currenciesViewModel.isLoading {
             ProgressView()
