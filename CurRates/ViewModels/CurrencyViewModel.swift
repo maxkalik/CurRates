@@ -30,12 +30,20 @@ struct CurrencyViewModel: Identifiable {
         return currency.description
     }
     
-    var sell: String {
-        return currency.currencyPrice(.transfer, .sell, with: generalCurrency)
+    var transferSell: String {
+        return currency.price(.transfer, .sell, with: generalCurrency)
     }
     
-    var buy: String {
-        return currency.currencyPrice(.transfer, .buy, with: generalCurrency)
+    var transferBuy: String {
+        return currency.price(.transfer, .buy, with: generalCurrency)
+    }
+    
+    var rateSell: String {
+        return currency.price(.rate, .sell, with: generalCurrency)
+    }
+    
+    var rateBuy: String {
+        return currency.price(.rate, .buy, with: generalCurrency)
     }
     
     mutating func updateGeneralCurrency(_ currency: GeneralCurrency) {

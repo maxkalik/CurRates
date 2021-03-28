@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct CurrencyDetailsView: View {
+    
+    var currency: CurrencyViewModel
+    
+    init(currency: CurrencyViewModel) {
+        self.currency = currency
+    }
+    
     var body: some View {
         Text("Hello, World!")
     }
@@ -15,6 +22,6 @@ struct CurrencyDetailsView: View {
 
 struct CurrencyDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyDetailsView()
+        CurrencyDetailsView(currency: CurrencyViewModel(currency: Currency.aud))
     }
 }

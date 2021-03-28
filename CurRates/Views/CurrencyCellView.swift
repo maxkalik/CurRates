@@ -27,11 +27,11 @@ struct CurrencyCellView: View {
             }
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
             Spacer()
-            if !(currency.buy.isEmpty && currency.sell.isEmpty) {
+            if !(currency.transferBuy.isEmpty && currency.transferSell.isEmpty) {
                 VStack {
-                    RateView(title: "Buy", value: currency.buy)
+                    RateView(title: "Buy", value: currency.transferBuy)
                         .padding(.bottom, 1)
-                    RateView(title: "Sell", value: currency.sell)
+                    RateView(title: "Sell", value: currency.transferSell)
                 }
             } else {
                 Text("—")
@@ -44,12 +44,7 @@ struct CurrencyCellView: View {
 
 struct CurrencyCellView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        let dummyRateEur = Rate(currency: "EUR", description: "Euro", sellRate: "1.501", buyRate: "1.6", sellTransfer: "1.5138", buyTransfer: "1.5916")
-        let dummyRateUsd = Rate(currency: "USD", description: "US Dollar", sellRate: "0.737", buyRate: "0.79", sellTransfer: "0.7426", buyTransfer: "0.7807")
-        let dummyCurrency = Currency(id: "AUD", description: "Australian Dollar", reverseUsdQuot: true, rates: [dummyRateEur, dummyRateUsd])
-        
-        CurrencyCellView(currency: CurrencyViewModel(currency: dummyCurrency), generalCurrency: .USD)
+        CurrencyCellView(currency: CurrencyViewModel(currency: Currency.aud), generalCurrency: .USD)
     }
 }
 
