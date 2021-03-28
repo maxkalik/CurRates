@@ -188,14 +188,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		110E7EBD260BBED50051D0AE /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				110E7EBE260BBEF30051D0AE /* URLSession.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		110E7EC2260BC8E40051D0AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +223,7 @@
 		117BB9682611176F00BA2B28 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				110E7EBE260BBEF30051D0AE /* URLSession.swift */,
 				11ADFEFB260FFF50006AC0AB /* PreviewData.swift */,
 				117BB9692611178200BA2B28 /* Constants.swift */,
 			);
@@ -257,11 +250,11 @@
 		11B6F0462610D5730059ECA1 /* CurRatesWidget */ = {
 			isa = PBXGroup;
 			children = (
+				117BB970261118CA00BA2B28 /* CurRatesWidgetView.swift */,
 				11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */,
 				11B6F0472610D5730059ECA1 /* CurRatesWidget.swift */,
 				11B6F0492610D5730059ECA1 /* Assets.xcassets */,
 				11B6F04B2610D5730059ECA1 /* Info.plist */,
-				117BB970261118CA00BA2B28 /* CurRatesWidgetView.swift */,
 			);
 			path = CurRatesWidget;
 			sourceTree = "<group>";
@@ -273,7 +266,6 @@
 				11FC0D352610F61C00A33835 /* Views */,
 				11B6F0702610DBEC0059ECA1 /* ViewModels */,
 				110E7EC2260BC8E40051D0AE /* Models */,
-				110E7EBD260BBED50051D0AE /* Extension */,
 				110E7EB9260BBBDC0051D0AE /* Services */,
 			);
 			path = Shared;

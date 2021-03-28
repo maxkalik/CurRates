@@ -25,16 +25,23 @@ struct ContentView: View {
 
         if currenciesViewModel.isLoading {
             ProgressView()
+        } else if currenciesViewModel.isError {
+            Text("Something went wrong.")
+            Button(action: {
+                currenciesViewModel.load()
+            }, label: {
+                Text("Try again")
+            }).padding(.top, 10)
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, unit: $unit)
                     .navigationBarTitle(Text("Currencies"), displayMode: .large)
-                    .navigationBarItems(leading:
-                                            Text(currenciesViewModel.date)
-                                            .fontWeight(.bold)
-                                            .font(.system(size: 22))
-                                            .padding(.bottom, 4),
-                                        trailing: SegmentedPickerView(unit: $unit))
+                    .navigationBarItems(
+                        leading: Text(currenciesViewModel.date)
+                            .fontWeight(.bold)
+                            .font(.system(size: 22))
+                            .padding(.bottom, 4),
+                        trailing: SegmentedPickerView(unit: $unit))
                     .add(self.searchBar)
             }
             .navigationViewStyle(StackNavigationViewStyle())

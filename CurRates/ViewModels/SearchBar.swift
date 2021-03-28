@@ -28,11 +28,12 @@ extension SearchBar: UISearchResultsUpdating {
     }
 }
 
+// MARK: - Validation
+
 extension SearchBar: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
-        if range.location == 0 && text == " " { return false }
         
+        if range.location == 0 && text == " " { return false }
         if text.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
             return false
         }
