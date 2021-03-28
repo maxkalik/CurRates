@@ -35,7 +35,6 @@ struct CurrencyDetailsView: View {
             }
         }
             .padding(.top, 1)
-            // .navigationBarItems(trailing: SegmentedPickerView(generalCurrency: $generalCurrency))
     }
 }
 
