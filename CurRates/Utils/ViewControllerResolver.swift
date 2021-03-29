@@ -11,7 +11,7 @@ typealias OnResolveType = (UIViewController) -> Void
 
 final class ViewControllerResolver: UIViewControllerRepresentable {
     
-    let onResolve: OnResolveType
+    private let onResolve: OnResolveType
     
     init(onResolve: @escaping OnResolveType) {
         self.onResolve = onResolve
@@ -25,7 +25,7 @@ final class ViewControllerResolver: UIViewControllerRepresentable {
 }
 
 class ParentResolverViewController: UIViewController {
-    let onResolve: OnResolveType
+    private let onResolve: OnResolveType
     
     init(onResolve: @escaping OnResolveType) {
         self.onResolve = onResolve
