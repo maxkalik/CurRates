@@ -38,6 +38,16 @@
                ReferencedContainer = "container:CurRates.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1151AD0526115A360088C0DB"
+               BuildableName = "CurRatesUITests.xctest"
+               BlueprintName = "CurRatesUITests"
+               ReferencedContainer = "container:CurRates.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
