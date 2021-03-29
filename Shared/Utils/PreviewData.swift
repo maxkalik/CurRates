@@ -13,5 +13,5 @@ extension Rate {
 }
 
 extension Currency {
-    static let aud = Currency(id: "AUD", description: "Australian Dollar", reverseUsdQuot: true, rates: [Rate.eur, Rate.usd])
+    static let aud = Currency(id: "AUD", description: "Australian Dollar", reverseUsdQuot: false, rates: [Rate.eur, Rate.usd])
 }
