@@ -18,6 +18,7 @@
 		110E7ECB260BCADE0051D0AE /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7ECA260BCADE0051D0AE /* Currencies.swift */; };
 		110E7EDE260C01FC0051D0AE /* CurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EDD260C01FC0051D0AE /* CurrenciesViewModel.swift */; };
 		1151ACF3261148950088C0DB /* CurRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151ACF2261148950088C0DB /* CurRatesTests.swift */; };
+		1151AD0926115A360088C0DB /* CurRatesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151AD0826115A360088C0DB /* CurRatesUITests.swift */; };
 		117BB96A2611178200BA2B28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BB9692611178200BA2B28 /* Constants.swift */; };
 		117BB96B2611178200BA2B28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BB9692611178200BA2B28 /* Constants.swift */; };
 		117BB971261118CA00BA2B28 /* CurRatesWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BB970261118CA00BA2B28 /* CurRatesWidgetView.swift */; };
@@ -55,6 +56,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		1151ACF5261148950088C0DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110E7E9C260BB8A90051D0AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 110E7EA3260BB8A90051D0AE;
+			remoteInfo = CurRates;
+		};
+		1151AD0B26115A360088C0DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 110E7E9C260BB8A90051D0AE /* Project object */;
 			proxyType = 1;
@@ -100,6 +108,9 @@
 		1151ACF0261148950088C0DB /* CurRatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurRatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1151ACF2261148950088C0DB /* CurRatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesTests.swift; sourceTree = "<group>"; };
 		1151ACF4261148950088C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1151AD0626115A360088C0DB /* CurRatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurRatesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1151AD0826115A360088C0DB /* CurRatesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesUITests.swift; sourceTree = "<group>"; };
+		1151AD0A26115A360088C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		117BB9692611178200BA2B28 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		117BB970261118CA00BA2B28 /* CurRatesWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesWidgetView.swift; sourceTree = "<group>"; };
 		117BB97526111A1A00BA2B28 /* ValueHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueHeadingView.swift; sourceTree = "<group>"; };
@@ -140,6 +151,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1151AD0326115A360088C0DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		11B6F03D2610D5720059ECA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +178,7 @@
 				110E7EA6260BB8A90051D0AE /* CurRates */,
 				11B6F0462610D5730059ECA1 /* CurRatesWidget */,
 				1151ACF1261148950088C0DB /* CurRatesTests */,
+				1151AD0726115A360088C0DB /* CurRatesUITests */,
 				11B6F0412610D5720059ECA1 /* Frameworks */,
 				110E7EA5260BB8A90051D0AE /* Products */,
 			);
@@ -171,6 +190,7 @@
 				110E7EA4260BB8A90051D0AE /* CurRates.app */,
 				11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */,
 				1151ACF0261148950088C0DB /* CurRatesTests.xctest */,
+				1151AD0626115A360088C0DB /* CurRatesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +267,15 @@
 				1151ACF4261148950088C0DB /* Info.plist */,
 			);
 			path = CurRatesTests;
+			sourceTree = "<group>";
+		};
+		1151AD0726115A360088C0DB /* CurRatesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1151AD0826115A360088C0DB /* CurRatesUITests.swift */,
+				1151AD0A26115A360088C0DB /* Info.plist */,
+			);
+			path = CurRatesUITests;
 			sourceTree = "<group>";
 		};
 		117BB9682611176F00BA2B28 /* Utils */ = {
@@ -364,6 +393,24 @@
 			productReference = 1151ACF0261148950088C0DB /* CurRatesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1151AD0526115A360088C0DB /* CurRatesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1151AD0F26115A360088C0DB /* Build configuration list for PBXNativeTarget "CurRatesUITests" */;
+			buildPhases = (
+				1151AD0226115A360088C0DB /* Sources */,
+				1151AD0326115A360088C0DB /* Frameworks */,
+				1151AD0426115A360088C0DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1151AD0C26115A360088C0DB /* PBXTargetDependency */,
+			);
+			name = CurRatesUITests;
+			productName = CurRatesUITests;
+			productReference = 1151AD0626115A360088C0DB /* CurRatesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		11B6F03F2610D5720059ECA1 /* CurRatesWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11B6F04F2610D5730059ECA1 /* Build configuration list for PBXNativeTarget "CurRatesWidgetExtension" */;
@@ -397,6 +444,10 @@
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 110E7EA3260BB8A90051D0AE;
 					};
+					1151AD0526115A360088C0DB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 110E7EA3260BB8A90051D0AE;
+					};
 					11B6F03F2610D5720059ECA1 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -418,6 +469,7 @@
 				110E7EA3260BB8A90051D0AE /* CurRates */,
 				11B6F03F2610D5720059ECA1 /* CurRatesWidgetExtension */,
 				1151ACEF261148950088C0DB /* CurRatesTests */,
+				1151AD0526115A360088C0DB /* CurRatesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -433,6 +485,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1151ACEE261148950088C0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1151AD0426115A360088C0DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,6 +547,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1151AD0226115A360088C0DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1151AD0926115A360088C0DB /* CurRatesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		11B6F03C2610D5720059ECA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,6 +583,11 @@
 			isa = PBXTargetDependency;
 			target = 110E7EA3260BB8A90051D0AE /* CurRates */;
 			targetProxy = 1151ACF5261148950088C0DB /* PBXContainerItemProxy */;
+		};
+		1151AD0C26115A360088C0DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 110E7EA3260BB8A90051D0AE /* CurRates */;
+			targetProxy = 1151AD0B26115A360088C0DB /* PBXContainerItemProxy */;
 		};
 		11B6F04D2610D5730059ECA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -729,6 +801,44 @@
 			};
 			name = Release;
 		};
+		1151AD0D26115A360088C0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P353H6D448;
+				INFOPLIST_FILE = CurRatesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = maxkalik.com.CurRatesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurRates;
+			};
+			name = Debug;
+		};
+		1151AD0E26115A360088C0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P353H6D448;
+				INFOPLIST_FILE = CurRatesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = maxkalik.com.CurRatesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurRates;
+			};
+			name = Release;
+		};
 		11B6F0502610D5730059ECA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -799,6 +909,15 @@
 			buildConfigurations = (
 				1151ACF7261148950088C0DB /* Debug */,
 				1151ACF8261148950088C0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1151AD0F26115A360088C0DB /* Build configuration list for PBXNativeTarget "CurRatesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1151AD0D26115A360088C0DB /* Debug */,
+				1151AD0E26115A360088C0DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

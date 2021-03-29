@@ -48,6 +48,7 @@ struct RateItemView: View {
                 .font(.system(size: 18))
                 .fontWeight(.bold)
                 .frame(width: 100, alignment: .trailing)
+                .tag("currency_value")
             if !reversed {
                 Text(title).modifier(LabelStyle())
                     .frame(width: 45, alignment: .leading)
