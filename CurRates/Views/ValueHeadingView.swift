@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ValueHeadingView: View {
-    var leftTitle: String
-    var rightTitle: String
+    private(set) var leftTitle: String
+    private(set) var rightTitle: String
     
     var body: some View {
         HStack {

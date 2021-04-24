@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ValueLineView: View {
     
-    var title: String
-    var value: String
+    private(set) var title: String
+    private(set) var value: String
     
     var body: some View {
         HStack {
