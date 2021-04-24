@@ -13,7 +13,7 @@ Implement simple currency rates check app using endpoint for currency rate.
 - [x] without third parties
 - [x] Unit tests
 - [x] UI tests
-- [x] Serach bar input validation
+- [x] Search bar input validation
 - [x] ReverseUsdQuot
 - [x] Today Widget extension
 

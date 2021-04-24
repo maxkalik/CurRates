@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurRatesWidgetView: View {
     
-    var currency: CurrencyViewModel
+    private(set) var currency: CurrencyViewModel
     
     var body: some View {
         VStack(alignment: .center) {

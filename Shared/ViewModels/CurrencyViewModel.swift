@@ -23,7 +23,7 @@ class CurrencyViewModel: Identifiable, ObservableObject {
         var id: UUID = UUID()
     }
     
-    var isOnWidgetSelected = false
+    private(set) var isOnWidgetSelected = false
     
     @AppStorage(Constants.appStorageKey, store: UserDefaults(suiteName: Constants.suiteName)) var currencyData = Data()
     @Published private var currency: Currency

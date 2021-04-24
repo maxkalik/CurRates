@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct MiniRatesView: View {
-    let buy: String
-    let sell: String
-    let reversed: Bool?
+    private(set) var buy: String
+    private(set) var sell: String
+    private(set) var reversed: Bool?
     
     init(buy: String, sell: String, reversed: Bool? = nil) {
         self.buy = buy
