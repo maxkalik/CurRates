@@ -12,7 +12,7 @@ final class NetworkService {
     private init() {}
     
     private let urlSession = URLSession.shared
-    private let baseUrl = URL(string: "https://m.citadele.lv/cimo/p/currate")
+    private let baseUrl = URL(string: Constants.baseUrl)
     private let jsonDecoder = JSONDecoder()
     
     enum NetworkServiceError: Error {

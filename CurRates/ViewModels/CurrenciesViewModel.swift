@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class CurrenciesViewModel: ObservableObject {
     
@@ -14,6 +15,15 @@ class CurrenciesViewModel: ObservableObject {
     @Published var list: [CurrencyViewModel] = [CurrencyViewModel]()
     var date: String {
         return getCurrentDate()
+    }
+    
+    private var cancellable: AnyCancellable?
+    
+    func combineLoad() {
+        self.cancellable = CitadeleApi.shared
+            .fetchCurrencies(with: [.language: .EN, .location: .LV])
+            .print()
+            .sink(receiveCompletion: { _ in }, receiveValue: { print($0) })
     }
     
     func load() {

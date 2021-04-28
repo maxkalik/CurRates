@@ -17,6 +17,7 @@ struct CurRatesView: View {
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 34, weight: .bold), .foregroundColor: UIColor.systemGray4]
         currenciesViewModel.load()
+        currenciesViewModel.combineLoad()
     }
 
     var body: some View {
