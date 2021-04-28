@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     
-    @AppStorage("currency", store: UserDefaults(suiteName: "group.maxkalik.com.CurRates.Currencies")) var currencyData = Data()
+    @AppStorage("currency", store: UserDefaults(suiteName: Constants.suiteName)) var currencyData = Data()
     
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.aud))

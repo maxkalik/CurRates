@@ -26,12 +26,10 @@ struct CurRatesView: View {
         if currenciesViewModel.isLoading {
             ProgressView()
         } else if currenciesViewModel.isError {
-            Text("Something went wrong.")
-            Button(action: {
+            Text("Something went wrong")
+            Button("Try again") {
                 currenciesViewModel.load()
-            }, label: {
-                Text("Try again")
-            }).padding(.top, 10)
+            }.padding(.top, 10)
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, unit: $unit)

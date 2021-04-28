@@ -50,6 +50,8 @@
 		11BE5C87260D3BE6009A87D7 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */; };
 		11BE5C96260E01E0009A87D7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C95260E01E0009A87D7 /* SearchBar.swift */; };
 		11BE5C9A260E0394009A87D7 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */; };
+		11DC3A53263A074D000F49D1 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC3A52263A074D000F49D1 /* Details.swift */; };
+		11DC3A58263A07FC000F49D1 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC3A52263A074D000F49D1 /* Details.swift */; };
 		11FC0D372610F63400A33835 /* MiniRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D362610F63400A33835 /* MiniRatesView.swift */; };
 		11FC0D3A2610F64C00A33835 /* MiniRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D362610F63400A33835 /* MiniRatesView.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +135,7 @@
 		11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		11BE5C95260E01E0009A87D7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
+		11DC3A52263A074D000F49D1 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		11FC0D362610F63400A33835 /* MiniRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniRatesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +201,7 @@
 		110E7EA6260BB8A90051D0AE /* CurRates */ = {
 			isa = PBXGroup;
 			children = (
+				11DC3A51263A0742000F49D1 /* Models */,
 				11B6F05C2610D68D0059ECA1 /* CurRates.entitlements */,
 				11ADFED9260E6F19006AC0AB /* Modifiers */,
 				11BE5C98260E0383009A87D7 /* Utils */,
@@ -230,6 +234,7 @@
 		110E7EC2260BC8E40051D0AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				11DC3A52263A074D000F49D1 /* Details.swift */,
 				110E7ECA260BCADE0051D0AE /* Currencies.swift */,
 				110E7EC3260BC90E0051D0AE /* Currency.swift */,
 				110E7EC7260BCABC0051D0AE /* Rate.swift */,
@@ -343,6 +348,13 @@
 				11BE5C99260E0394009A87D7 /* ViewControllerResolver.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		11DC3A51263A0742000F49D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		11FC0D352610F61C00A33835 /* Views */ = {
@@ -527,6 +539,7 @@
 				117BB97626111A1A00BA2B28 /* ValueHeadingView.swift in Sources */,
 				11ADFEE3260FB852006AC0AB /* CurrencyCellView.swift in Sources */,
 				11ADFEDB260E6F31006AC0AB /* SearchBarModifier.swift in Sources */,
+				11DC3A53263A074D000F49D1 /* Details.swift in Sources */,
 				110E7EBB260BBC350051D0AE /* NetworkService.swift in Sources */,
 				11BE5C96260E01E0009A87D7 /* SearchBar.swift in Sources */,
 				110E7EC8260BCABD0051D0AE /* Rate.swift in Sources */,
@@ -570,6 +583,7 @@
 				117BB97C26111A4000BA2B28 /* ValueLineView.swift in Sources */,
 				11B6F06D2610DBAD0059ECA1 /* Rate.swift in Sources */,
 				11B6F0662610DAF00059ECA1 /* URLSession.swift in Sources */,
+				11DC3A58263A07FC000F49D1 /* Details.swift in Sources */,
 				11B6F0592610D6090059ECA1 /* CurRatesProvider.swift in Sources */,
 				117BB972261118CA00BA2B28 /* CurRatesWidgetView.swift in Sources */,
 				117BB97726111A1A00BA2B28 /* ValueHeadingView.swift in Sources */,
