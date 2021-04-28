@@ -29,7 +29,7 @@ struct CurrencyDetailsView: View {
             Divider()
             Toggle(isOn: $isShowOnWidget) {
                 Text("Show on Widget")
-            }.onChange(of: isShowOnWidget) {isOn in
+            }.onChange(of: isShowOnWidget) { isOn in
                 currency.showAtWidget(currencyId: currency.id)
             }.onAppear {
                 isShowOnWidget = currency.isOnWidgetSelected

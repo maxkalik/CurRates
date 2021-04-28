@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @ObservedObject private var searchBar: SearchBar = SearchBar()
@@ -51,7 +51,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CurRatesView()
             .environment(\.colorScheme, .dark)
     }
 }

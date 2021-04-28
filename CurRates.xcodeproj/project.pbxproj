@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		110E7EA8260BB8A90051D0AE /* CurRatesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EA7260BB8A90051D0AE /* CurRatesApp.swift */; };
-		110E7EAA260BB8A90051D0AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EA9260BB8A90051D0AE /* ContentView.swift */; };
+		110E7EAA260BB8A90051D0AE /* CurRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EA9260BB8A90051D0AE /* CurRatesView.swift */; };
 		110E7EAC260BB8AA0051D0AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110E7EAB260BB8AA0051D0AE /* Assets.xcassets */; };
 		110E7EAF260BB8AA0051D0AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110E7EAE260BB8AA0051D0AE /* Preview Assets.xcassets */; };
 		110E7EBB260BBC350051D0AE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBA260BBC350051D0AE /* NetworkService.swift */; };
@@ -95,7 +95,7 @@
 /* Begin PBXFileReference section */
 		110E7EA4260BB8A90051D0AE /* CurRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		110E7EA7260BB8A90051D0AE /* CurRatesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesApp.swift; sourceTree = "<group>"; };
-		110E7EA9260BB8A90051D0AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		110E7EA9260BB8A90051D0AE /* CurRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesView.swift; sourceTree = "<group>"; };
 		110E7EAB260BB8AA0051D0AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		110E7EAE260BB8AA0051D0AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		110E7EB0260BB8AA0051D0AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,7 +203,6 @@
 				11BE5C98260E0383009A87D7 /* Utils */,
 				110E7EDB260C01DC0051D0AE /* ViewModels */,
 				110E7EDC260C01E50051D0AE /* Views */,
-				110E7EA9260BB8A90051D0AE /* ContentView.swift */,
 				110E7EA7260BB8A90051D0AE /* CurRatesApp.swift */,
 				110E7EAB260BB8AA0051D0AE /* Assets.xcassets */,
 				110E7EB0260BB8AA0051D0AE /* Info.plist */,
@@ -250,6 +249,7 @@
 		110E7EDC260C01E50051D0AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				110E7EA9260BB8A90051D0AE /* CurRatesView.swift */,
 				11BE5C83260D3BC1009A87D7 /* CurrencyListView.swift */,
 				11ADFEDF260FB2E9006AC0AB /* SegmentedPickerView.swift */,
 				11ADFEE2260FB852006AC0AB /* CurrencyCellView.swift */,
@@ -515,7 +515,7 @@
 			files = (
 				11BE5C9A260E0394009A87D7 /* ViewControllerResolver.swift in Sources */,
 				11B6F0562610D5FF0059ECA1 /* CurRatesProvider.swift in Sources */,
-				110E7EAA260BB8A90051D0AE /* ContentView.swift in Sources */,
+				110E7EAA260BB8A90051D0AE /* CurRatesView.swift in Sources */,
 				11FC0D372610F63400A33835 /* MiniRatesView.swift in Sources */,
 				11ADFEE0260FB2E9006AC0AB /* SegmentedPickerView.swift in Sources */,
 				117BB971261118CA00BA2B28 /* CurRatesWidgetView.swift in Sources */,

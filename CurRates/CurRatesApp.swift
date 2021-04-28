@@ -11,7 +11,7 @@ import SwiftUI
 struct CurRatesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CurRatesView()
         }
     }
 }
