@@ -22,27 +22,28 @@ class CurrenciesViewModel: ObservableObject {
     func combineLoad() {
         self.cancellable = CitadeleApi.shared
             .fetchCurrencies(with: [.language: .EN, .location: .LV])
-            .print()
-            .sink(receiveCompletion: { _ in }, receiveValue: { print($0) })
+            .sink(receiveCompletion: { _ in }, receiveValue: { [self] currencies in
+                list = currencies.data.map(CurrencyViewModel.init)
+            })
     }
     
-    func load() {
-        isLoading = true
-        NetworkService.shared
-            .fetchCurrencies(with: [.language: .EN, .location: .LV]) { [self] result in
-            switch result {
-            case .success(let currencies):
-                DispatchQueue.main.async {
-                    list = currencies.data.map(CurrencyViewModel.init)
-                    isLoading = false
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-                isError = true
-                isLoading = false
-            }
-        }
-    }
+    // func load() {
+    //     isLoading = true
+    //     NetworkService.shared
+    //         .fetchCurrencies(with: [.language: .EN, .location: .LV]) { [self] result in
+    //         switch result {
+    //         case .success(let currencies):
+    //             DispatchQueue.main.async {
+    //                 list = currencies.data.map(CurrencyViewModel.init)
+    //                 isLoading = false
+    //             }
+    //         case .failure(let error):
+    //             print(error.localizedDescription)
+    //             isError = true
+    //             isLoading = false
+    //         }
+    //     }
+    // }
     
     func getCurrentDate() -> String {
         let today = Date()

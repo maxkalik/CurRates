@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 struct Agent {
+    
     struct Response<T> {
         let value: T
         let response: URLResponse
@@ -34,6 +35,14 @@ final class CitadeleApi {
     
     private let agent = Agent()
     private let baseUrl = URL(string: Constants.baseUrl)
+    
+    // enum NetworkServiceError: Error {
+    //     case apiError
+    //     case noData
+    //     case invalidEndpoint
+    //     case invalidResponse
+    //     case decodeError
+    // }
     
     enum Language: String {
         case LV
@@ -73,6 +82,13 @@ final class CitadeleApi {
         return request
     }
     
+    func fetchData(from request: URLRequest?) -> AnyPublisher<Currencies, Error> {
+        return agent
+            .run(request!)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
+    
     func fetchCurrencies(with queries: Queries? = nil) -> AnyPublisher<Currencies, Error> {
         var request: URLRequest?
         
@@ -83,9 +99,6 @@ final class CitadeleApi {
             request = prepareRequest(from: baseUrl)
         }
         
-        return agent
-            .run(request!)
-            .map(\.value)
-            .eraseToAnyPublisher()
+        return fetchData(from: request)
     }
 }
