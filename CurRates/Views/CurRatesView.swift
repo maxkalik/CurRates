@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @ObservedObject private var searchBar: SearchBar = SearchBar()
@@ -26,12 +26,10 @@ struct ContentView: View {
         if currenciesViewModel.isLoading {
             ProgressView()
         } else if currenciesViewModel.isError {
-            Text("Something went wrong.")
-            Button(action: {
+            Text("Something went wrong")
+            Button("Try again") {
                 currenciesViewModel.load()
-            }, label: {
-                Text("Try again")
-            }).padding(.top, 10)
+            }.padding(.top, 10)
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, unit: $unit)
@@ -51,7 +49,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CurRatesView()
             .environment(\.colorScheme, .dark)
     }
 }

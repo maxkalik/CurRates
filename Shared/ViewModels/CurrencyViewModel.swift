@@ -15,14 +15,6 @@ enum CurrencyUnit: String, Equatable, CaseIterable {
 
 class CurrencyViewModel: Identifiable, ObservableObject {
     
-    struct Details: Identifiable {
-        var unitTitle: String
-        var rateTypeTitle: String
-        var sell: String
-        var buy: String
-        var id: UUID = UUID()
-    }
-    
     private(set) var isOnWidgetSelected = false
     
     @AppStorage(Constants.appStorageKey, store: UserDefaults(suiteName: Constants.suiteName)) var currencyData = Data()
@@ -32,6 +24,9 @@ class CurrencyViewModel: Identifiable, ObservableObject {
         self.currency = currency
         isOnWidgetSelected = currency.id == getCurrencyId()
     }
+}
+
+extension CurrencyViewModel {
     
     var id: String {
         return currency.id
@@ -48,10 +43,9 @@ class CurrencyViewModel: Identifiable, ObservableObject {
     var buy: String {
         return currency.price(.transfer, .buy)
     }
-    
-    func updateCurrencyUnit(_ currency: CurrencyUnit) {
-        self.currency.updateCurrencyUnit(unit: currency)
-    }
+}
+
+extension CurrencyViewModel {
     
     var details: [Details] {
         return [
@@ -76,6 +70,13 @@ class CurrencyViewModel: Identifiable, ObservableObject {
                     buy: currency.price(.rate, .buy, unit: .EUR)
             )
         ]
+    }
+}
+
+extension CurrencyViewModel {
+
+    func updateCurrencyUnit(_ currency: CurrencyUnit) {
+        self.currency.updateCurrencyUnit(unit: currency)
     }
     
     func getCurrencyId() -> String {

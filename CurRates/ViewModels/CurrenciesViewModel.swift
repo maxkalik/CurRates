@@ -18,17 +18,18 @@ class CurrenciesViewModel: ObservableObject {
     
     func load() {
         isLoading = true
-        NetworkService.shared.fetchCurrencies(with: [.language: .EN, .location: .LV]) { result in
+        NetworkService.shared
+            .fetchCurrencies(with: [.language: .EN, .location: .LV]) { [self] result in
             switch result {
             case .success(let currencies):
                 DispatchQueue.main.async {
-                    self.list = currencies.data.map(CurrencyViewModel.init)
-                    self.isLoading = false
+                    list = currencies.data.map(CurrencyViewModel.init)
+                    isLoading = false
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self.isError = true
-                self.isLoading = false
+                isError = true
+                isLoading = false
             }
         }
     }

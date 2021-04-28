@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchBarModifier: ViewModifier {
 
-    let searchBar: SearchBar
+    private(set) var searchBar: SearchBar
     
     func body(content: Content) -> some View {
         content.overlay(
