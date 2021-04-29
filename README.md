@@ -17,4 +17,8 @@ Implement simple currency rates check app using endpoint for currency rate.
 - [x] ReverseUsdQuot
 - [x] Today Widget extension
 
+## Updates
+
+- Network Layer has improved with Combine
+
 ![CurRates App](Documentation/screenshots.png)
