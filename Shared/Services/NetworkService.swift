@@ -41,60 +41,19 @@ enum NetworkService {
     }
 }
 
-// MARK: - Helpers
-
 extension NetworkService {
-    static let baseUrl = URL(string: Constants.baseUrl)
- 
-    enum Language: String {
-        case LV
-        case EN
-        case RU
-    }
-
-    enum Query: String {
-        case language
-        case location
-    }
     
-    typealias Queries = [Query : Language]
-    
-    static func prepareQueries(_ queries: Queries, in url: URL?) -> URL? {
-        guard let url = url else {
-            return nil
-        }
-        
-        var queryItems = [URLQueryItem]()
-        for query in queries {
-            queryItems.append(URLQueryItem(name: query.key.rawValue, value: query.value.rawValue))
-        }
-        
-        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = queryItems
-        return urlComponents?.url
-    }
-    
-    static func prepareRequest(from url: URL?) -> URLRequest? {
-        guard let url = url else {
-            return nil
-        }
+    static let helper = NetworkServiceHelper.shared
 
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        return request
-    }
-}
-
-extension NetworkService {
-
-    static func fetchCurrencies(with queries: Queries? = nil) -> AnyPublisher<Currencies, FailureReason> {
+    static func fetchCurrencies(with queries: NetworkServiceHelper.Queries? = nil) -> AnyPublisher<Currencies, FailureReason> {
+        let baseUrl = URL(string: Constants.baseUrl)
         var request: URLRequest?
         
         if let queries = queries {
-            let urlWithQueries = prepareQueries(queries, in: baseUrl)
-            request = prepareRequest(from: urlWithQueries)
+            let urlWithQueries = helper.prepareQueries(queries, in: baseUrl)
+            request = helper.prepareRequest(from: urlWithQueries, httpMethod: .post)
         } else {
-            request = prepareRequest(from: baseUrl)
+            request = helper.prepareRequest(from: baseUrl, httpMethod: .post)
         }
         
         return fetchData(from: request)
