@@ -1,28 +1,51 @@
 //
-//  NetworkService.swift
+//  Agent.swift
 //  CurRates
 //
-//  Created by Maksim Kalik on 3/24/21.
+//  Created by Maksim Kalik on 4/29/21.
 //
 
 import Foundation
+import Combine
 
-final class NetworkService {
-    static let shared = NetworkService()
-    private init() {}
+enum NetworkService {
+    static let agent = Agent()
     
-    private let urlSession = URLSession.shared
-    private let baseUrl = URL(string: Constants.baseUrl)
-    private let jsonDecoder = JSONDecoder()
-    
-    enum NetworkServiceError: Error {
-        case apiError
-        case noData
+    enum FailureReason: Error {
+        case sessionFailed(error: URLError)
+        case decodingFailed
         case invalidEndpoint
-        case invalidResponse
-        case decodeError
+        case other(Error)
     }
     
+    static func fetchData<Output: Decodable>(from request: URLRequest?) -> AnyPublisher<Output, FailureReason> {
+        
+        guard let request = request else {
+            return Fail(error: FailureReason.invalidEndpoint).eraseToAnyPublisher()
+        }
+        
+        return agent
+            .run(request)
+            .map(\.value)
+            .mapError({ error in
+                switch error {
+                case is Swift.DecodingError:
+                    return .decodingFailed
+                case let urlError as URLError:
+                    return .sessionFailed(error: urlError)
+                default:
+                    return .other(error)
+                }
+            })
+            .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - Helpers
+
+extension NetworkService {
+    static let baseUrl = URL(string: Constants.baseUrl)
+ 
     enum Language: String {
         case LV
         case EN
@@ -33,10 +56,10 @@ final class NetworkService {
         case language
         case location
     }
-
+    
     typealias Queries = [Query : Language]
     
-    private func prepareQueries(_ queries: Queries, in url: URL?) -> URL? {
+    static func prepareQueries(_ queries: Queries, in url: URL?) -> URL? {
         guard let url = url else {
             return nil
         }
@@ -51,7 +74,7 @@ final class NetworkService {
         return urlComponents?.url
     }
     
-    private func prepareRequest(from url: URL?) -> URLRequest? {
+    static func prepareRequest(from url: URL?) -> URLRequest? {
         guard let url = url else {
             return nil
         }
@@ -60,37 +83,11 @@ final class NetworkService {
         request.httpMethod = "POST"
         return request
     }
+}
 
-    
-    private func fetchData<T: Decodable>(from request: URLRequest?, completion: @escaping (Result<T, NetworkServiceError>) -> Void) {
-        guard let request = request else {
-            completion(.failure(.invalidEndpoint))
-            return
-        }
-        
-        urlSession.dataTask(with: request) { result in
-            switch result {
-            case .success(let (response, data)):
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {
-                    completion(.failure(.invalidEndpoint))
-                    return
-                }
-                do {
-                    let values = try self.jsonDecoder.decode(T.self, from: data)
-                    completion(.success(values))
-                } catch {
-                    debugPrint(error.localizedDescription)
-                    completion(.failure(.decodeError))
-                }
-            case .failure(let error):
-                debugPrint(error.localizedDescription)
-                completion(.failure(.apiError))
-            }
-        }.resume()
-    }
-    
-    func fetchCurrencies(with queries: Queries? = nil, result: @escaping (Result<Currencies, NetworkServiceError>) -> Void) {
+extension NetworkService {
 
+    static func fetchCurrencies(with queries: Queries? = nil) -> AnyPublisher<Currencies, FailureReason> {
         var request: URLRequest?
         
         if let queries = queries {
@@ -100,6 +97,6 @@ final class NetworkService {
             request = prepareRequest(from: baseUrl)
         }
         
-        fetchData(from: request, completion: result)
+        return fetchData(from: request)
     }
 }

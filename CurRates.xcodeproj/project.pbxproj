@@ -11,12 +11,12 @@
 		110E7EAA260BB8A90051D0AE /* CurRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EA9260BB8A90051D0AE /* CurRatesView.swift */; };
 		110E7EAC260BB8AA0051D0AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110E7EAB260BB8AA0051D0AE /* Assets.xcassets */; };
 		110E7EAF260BB8AA0051D0AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110E7EAE260BB8AA0051D0AE /* Preview Assets.xcassets */; };
-		110E7EBB260BBC350051D0AE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBA260BBC350051D0AE /* NetworkService.swift */; };
-		110E7EBF260BBEF30051D0AE /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBE260BBEF30051D0AE /* URLSession.swift */; };
 		110E7EC4260BC90E0051D0AE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC3260BC90E0051D0AE /* Currency.swift */; };
 		110E7EC8260BCABD0051D0AE /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC7260BCABC0051D0AE /* Rate.swift */; };
 		110E7ECB260BCADE0051D0AE /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7ECA260BCADE0051D0AE /* Currencies.swift */; };
 		110E7EDE260C01FC0051D0AE /* CurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EDD260C01FC0051D0AE /* CurrenciesViewModel.swift */; };
+		114EEBA2263B46CB0060DDAF /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114EEBA1263B46CB0060DDAF /* Agent.swift */; };
+		114EEBA3263B46CB0060DDAF /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114EEBA1263B46CB0060DDAF /* Agent.swift */; };
 		1151ACF3261148950088C0DB /* CurRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151ACF2261148950088C0DB /* CurRatesTests.swift */; };
 		1151AD0926115A360088C0DB /* CurRatesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151AD0826115A360088C0DB /* CurRatesUITests.swift */; };
 		117BB96A2611178200BA2B28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BB9692611178200BA2B28 /* Constants.swift */; };
@@ -34,8 +34,8 @@
 		11ADFEFC260FFF50006AC0AB /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEFB260FFF50006AC0AB /* PreviewData.swift */; };
 		11AF16FA263A0A9A008A9D1F /* RateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC3A5D263A0901000F49D1 /* RateItemView.swift */; };
 		11AF1704263A0B02008A9D1F /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC3A52263A074D000F49D1 /* Details.swift */; };
-		11AF1712263A1039008A9D1F /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF1711263A1039008A9D1F /* Agent.swift */; };
-		11AF1713263A1039008A9D1F /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF1711263A1039008A9D1F /* Agent.swift */; };
+		11AF1712263A1039008A9D1F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF1711263A1039008A9D1F /* NetworkService.swift */; };
+		11AF1713263A1039008A9D1F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF1711263A1039008A9D1F /* NetworkService.swift */; };
 		11B6F0432610D5720059ECA1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B6F0422610D5720059ECA1 /* WidgetKit.framework */; };
 		11B6F0452610D5730059ECA1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B6F0442610D5720059ECA1 /* SwiftUI.framework */; };
 		11B6F0482610D5730059ECA1 /* CurRatesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0472610D5730059ECA1 /* CurRatesWidget.swift */; };
@@ -43,12 +43,10 @@
 		11B6F04E2610D5730059ECA1 /* CurRatesWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11B6F0562610D5FF0059ECA1 /* CurRatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */; };
 		11B6F0592610D6090059ECA1 /* CurRatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6F0552610D5FF0059ECA1 /* CurRatesProvider.swift */; };
-		11B6F0662610DAF00059ECA1 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBE260BBEF30051D0AE /* URLSession.swift */; };
 		11B6F06B2610DBAD0059ECA1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC3260BC90E0051D0AE /* Currency.swift */; };
 		11B6F06C2610DBAD0059ECA1 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7ECA260BCADE0051D0AE /* Currencies.swift */; };
 		11B6F06D2610DBAD0059ECA1 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EC7260BCABC0051D0AE /* Rate.swift */; };
 		11B6F0712610DC060059ECA1 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */; };
-		11B6F0762610E0740059ECA1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E7EBA260BBC350051D0AE /* NetworkService.swift */; };
 		11B6F0792610E5840059ECA1 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADFEFB260FFF50006AC0AB /* PreviewData.swift */; };
 		11BE5C84260D3BC1009A87D7 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C83260D3BC1009A87D7 /* CurrencyListView.swift */; };
 		11BE5C87260D3BE6009A87D7 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE5C86260D3BE6009A87D7 /* CurrencyViewModel.swift */; };
@@ -105,12 +103,11 @@
 		110E7EAB260BB8AA0051D0AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		110E7EAE260BB8AA0051D0AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		110E7EB0260BB8AA0051D0AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		110E7EBA260BBC350051D0AE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		110E7EBE260BBEF30051D0AE /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		110E7EC3260BC90E0051D0AE /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		110E7EC7260BCABC0051D0AE /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		110E7ECA260BCADE0051D0AE /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		110E7EDD260C01FC0051D0AE /* CurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModel.swift; sourceTree = "<group>"; };
+		114EEBA1263B46CB0060DDAF /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		1151ACF0261148950088C0DB /* CurRatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurRatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1151ACF2261148950088C0DB /* CurRatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurRatesTests.swift; sourceTree = "<group>"; };
 		1151ACF4261148950088C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,7 +123,7 @@
 		11ADFEE2260FB852006AC0AB /* CurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellView.swift; sourceTree = "<group>"; };
 		11ADFEED260FC5C1006AC0AB /* CurrencyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailsView.swift; sourceTree = "<group>"; };
 		11ADFEFB260FFF50006AC0AB /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
-		11AF1711263A1039008A9D1F /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		11AF1711263A1039008A9D1F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		11B6F0402610D5720059ECA1 /* CurRatesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CurRatesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6F0422610D5720059ECA1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		11B6F0442610D5720059ECA1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -231,8 +228,7 @@
 		110E7EB9260BBBDC0051D0AE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				110E7EBA260BBC350051D0AE /* NetworkService.swift */,
-				11AF1711263A1039008A9D1F /* Agent.swift */,
+				11AF1711263A1039008A9D1F /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -292,9 +288,9 @@
 		117BB9682611176F00BA2B28 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				110E7EBE260BBEF30051D0AE /* URLSession.swift */,
 				11ADFEFB260FFF50006AC0AB /* PreviewData.swift */,
 				117BB9692611178200BA2B28 /* Constants.swift */,
+				114EEBA1263B46CB0060DDAF /* Agent.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -530,7 +526,7 @@
 				110E7EAA260BB8A90051D0AE /* CurRatesView.swift in Sources */,
 				11FC0D372610F63400A33835 /* MiniRatesView.swift in Sources */,
 				11ADFEE0260FB2E9006AC0AB /* SegmentedPickerView.swift in Sources */,
-				11AF1712263A1039008A9D1F /* Agent.swift in Sources */,
+				11AF1712263A1039008A9D1F /* NetworkService.swift in Sources */,
 				117BB971261118CA00BA2B28 /* CurRatesWidgetView.swift in Sources */,
 				11BE5C87260D3BE6009A87D7 /* CurrencyViewModel.swift in Sources */,
 				110E7ECB260BCADE0051D0AE /* Currencies.swift in Sources */,
@@ -541,11 +537,10 @@
 				11ADFEE3260FB852006AC0AB /* CurrencyCellView.swift in Sources */,
 				11ADFEDB260E6F31006AC0AB /* SearchBarModifier.swift in Sources */,
 				11DC3A53263A074D000F49D1 /* Details.swift in Sources */,
-				110E7EBB260BBC350051D0AE /* NetworkService.swift in Sources */,
+				114EEBA2263B46CB0060DDAF /* Agent.swift in Sources */,
 				11BE5C96260E01E0009A87D7 /* SearchBar.swift in Sources */,
 				11DC3A5E263A0901000F49D1 /* RateItemView.swift in Sources */,
 				110E7EC8260BCABD0051D0AE /* Rate.swift in Sources */,
-				110E7EBF260BBEF30051D0AE /* URLSession.swift in Sources */,
 				11BE5C84260D3BC1009A87D7 /* CurrencyListView.swift in Sources */,
 				11ADFEFC260FFF50006AC0AB /* PreviewData.swift in Sources */,
 				117BB97B26111A4000BA2B28 /* ValueLineView.swift in Sources */,
@@ -574,19 +569,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AF1713263A1039008A9D1F /* Agent.swift in Sources */,
+				11AF1713263A1039008A9D1F /* NetworkService.swift in Sources */,
 				117BB96B2611178200BA2B28 /* Constants.swift in Sources */,
 				11B6F06C2610DBAD0059ECA1 /* Currencies.swift in Sources */,
 				11B6F0712610DC060059ECA1 /* CurrencyViewModel.swift in Sources */,
 				11AF16FA263A0A9A008A9D1F /* RateItemView.swift in Sources */,
-				11B6F0762610E0740059ECA1 /* NetworkService.swift in Sources */,
+				114EEBA3263B46CB0060DDAF /* Agent.swift in Sources */,
 				11FC0D3A2610F64C00A33835 /* MiniRatesView.swift in Sources */,
 				11B6F0482610D5730059ECA1 /* CurRatesWidget.swift in Sources */,
 				11B6F06B2610DBAD0059ECA1 /* Currency.swift in Sources */,
 				11B6F0792610E5840059ECA1 /* PreviewData.swift in Sources */,
 				117BB97C26111A4000BA2B28 /* ValueLineView.swift in Sources */,
 				11B6F06D2610DBAD0059ECA1 /* Rate.swift in Sources */,
-				11B6F0662610DAF00059ECA1 /* URLSession.swift in Sources */,
 				11B6F0592610D6090059ECA1 /* CurRatesProvider.swift in Sources */,
 				117BB972261118CA00BA2B28 /* CurRatesWidgetView.swift in Sources */,
 				11AF1704263A0B02008A9D1F /* Details.swift in Sources */,

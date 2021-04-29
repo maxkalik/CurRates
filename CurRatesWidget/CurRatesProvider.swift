@@ -6,18 +6,22 @@
 //
 
 import SwiftUI
+import Combine
 
 public class CureRatesProvider {
     
+    static var cancellable: AnyCancellable?
+    
     static func getCurrency(by id: String, completion: @escaping (CurrencyViewModel) -> Void) {
-        NetworkService.shared.fetchCurrencies(with: [.language:.EN, .location:.LV]) { result in
-            switch result {
-            case .success(let currencies):
+        
+        cancellable = NetworkService
+            .fetchCurrencies(with: [.language: .EN, .location: .LV])
+            .catch { failureReason -> Just<Currencies> in
+                return Just(Currencies(data: [], success: false))
+            }
+            .sink(receiveCompletion: { _ in }, receiveValue: { currencies in
                 guard let currency = currencies.data.filter({ $0.id == id }).first else { return }
                 completion(CurrencyViewModel(currency: currency))
-            case .failure(let error):
-                print("ERROR! --", error)
-            }
-        }
+            })
     }
 }

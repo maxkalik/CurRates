@@ -10,5 +10,4 @@ import Foundation
 struct Currencies: Decodable {
     let data: [Currency]
     let success: Bool
-    let invalidated: Bool
 }
