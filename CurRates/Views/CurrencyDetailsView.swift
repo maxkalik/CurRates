@@ -39,10 +39,10 @@ struct CurrencyDetailsView: View {
             ForEach(currency.details) { details in
                 Divider()
                 HStack (alignment: .firstTextBaseline) {
-                    ColumnTitles(title: LocalizedStringKey(details.title.rawValue))
-                    Column(title: LocalizedStringKey("Sell"), details.transfer.sell, details.transfer.buy)
+                    ColumnTitles(title: LocalizedStringKey(details.title.rawValue), ["Transfer", "Rate"])
+                    Column(title: LocalizedStringKey("Sell"), [details.transfer.sell, details.transfer.buy])
                         .padding(.trailing, 8)
-                    Column(title: LocalizedStringKey("Buy"), details.rate.sell, details.rate.buy)
+                    Column(title: LocalizedStringKey("Buy"), [details.rate.sell, details.rate.buy])
                 }
                 .padding(.top, 10)
                 .padding(.horizontal, 30)
@@ -56,7 +56,13 @@ struct CurrencyDetailsView: View {
 
 struct ColumnTitles: View {
     
-    var title: LocalizedStringKey
+    let title: LocalizedStringKey
+    let subTitles: [String]
+    
+    init(title: LocalizedStringKey, _ subTitles: [String]) {
+        self.title = title
+        self.subTitles = subTitles
+    }
     
     var body: some View {
         return VStack(alignment: .leading) {
@@ -66,31 +72,27 @@ struct ColumnTitles: View {
                     .foregroundColor(.gray)
                     .padding(.bottom, 8)
                     .frame(maxHeight: 38, alignment: .leading)
-                Text(LocalizedStringKey("Transfer"))
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 8)
-                    .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
-                Text(LocalizedStringKey("Rate"))
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 8)
-                    .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
+            
+                ForEach(subTitles, id: \.self) { subTitle in
+                    Text(LocalizedStringKey(subTitle))
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 8)
+                        .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
+                
+                }
             }.frame(maxWidth: .infinity)
     }
 }
 
-
 struct Column: View {
     
-    var title: LocalizedStringKey
-    var value1: String
-    var value2: String
+    let title: LocalizedStringKey
+    let values: [String]
     
-    init(title: LocalizedStringKey, _ value1: String, _ value2: String) {
+    init(title: LocalizedStringKey, _ values: [String]) {
         self.title = title
-        self.value1 = value1
-        self.value2 = value2
+        self.values = values
     }
     
     var body: some View {
@@ -98,16 +100,14 @@ struct Column: View {
             Text(title)
                 .padding(.bottom, 8)
                 .frame(maxHeight: 38, alignment: .trailing)
-            Text(value1)
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.bottom, 8)
-                .frame(maxHeight: 38, alignment: .trailing)
-            Text(value2)
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.bottom, 8)
-                .frame(maxHeight: 38, alignment: .trailing)
+            
+            ForEach(values, id: \.self) { value in
+                Text(value)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 8)
+                    .frame(maxHeight: 38, alignment: .trailing)
+            }
         }
     }
 }
