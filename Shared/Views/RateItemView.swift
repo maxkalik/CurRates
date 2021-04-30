@@ -15,16 +15,19 @@ struct RateItemView: View {
     var body: some View {
         HStack(alignment: .bottom) {
             if reversed {
-                Text(title).modifier(LabelStyle())
-                    .frame(width: 45, alignment: .trailing)
+                Text(LocalizedStringKey(title)).modifier(LabelStyle())
+                    .frame(alignment: .trailing)
+                    .padding(.leading, 8)
             }
+            Spacer()
             Text(value)
                 .font(.system(size: 18))
                 .fontWeight(.bold)
-                .frame(width: 100, alignment: .trailing)
+                .frame(alignment: .trailing)
+                .padding(.trailing, 2)
             if !reversed {
-                Text(title).modifier(LabelStyle())
-                    .frame(width: 45, alignment: .leading)
+                Text(LocalizedStringKey(title)).modifier(LabelStyle())
+                    .frame(alignment: .leading)
             }
         }
     }
