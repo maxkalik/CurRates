@@ -36,19 +36,82 @@ struct CurrencyDetailsView: View {
             }.disabled(isShowOnWidget)
                 .padding(.horizontal, 30)
                 .padding(.vertical, 16)
-            ForEach(currency.details) { detail in
+            ForEach(currency.details) { details in
                 Divider()
-                VStack {
-                    ValueHeadingView(leftTitle: detail.unitTitle, rightTitle: detail.rateTypeTitle)
-                    ValueLineView(title: "Sell", value: detail.sell)
-                    ValueLineView(title: "Buy", value: detail.buy)
-                }.frame(width: 260).padding(.top, 10)
+                HStack (alignment: .firstTextBaseline) {
+                    ColumnTitles(title: LocalizedStringKey(details.title.rawValue))
+                    Column(title: LocalizedStringKey("Sell"), details.transfer.sell, details.transfer.buy)
+                        .padding(.trailing, 8)
+                    Column(title: LocalizedStringKey("Buy"), details.rate.sell, details.rate.buy)
+                }
+                .padding(.top, 10)
+                .padding(.horizontal, 30)
             }
+            
         }
         .padding(.top, 1)
         .padding(.bottom, 30)
     }
 }
+
+struct ColumnTitles: View {
+    
+    var title: LocalizedStringKey
+    
+    var body: some View {
+        return VStack(alignment: .leading) {
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 8)
+                    .frame(maxHeight: 38, alignment: .leading)
+                Text(LocalizedStringKey("Transfer"))
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 8)
+                    .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
+                Text(LocalizedStringKey("Rate"))
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 8)
+                    .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
+            }.frame(maxWidth: .infinity)
+    }
+}
+
+
+struct Column: View {
+    
+    var title: LocalizedStringKey
+    var value1: String
+    var value2: String
+    
+    init(title: LocalizedStringKey, _ value1: String, _ value2: String) {
+        self.title = title
+        self.value1 = value1
+        self.value2 = value2
+    }
+    
+    var body: some View {
+        return VStack(alignment: .trailing) {
+            Text(title)
+                .padding(.bottom, 8)
+                .frame(maxHeight: 38, alignment: .trailing)
+            Text(value1)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 8)
+                .frame(maxHeight: 38, alignment: .trailing)
+            Text(value2)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 8)
+                .frame(maxHeight: 38, alignment: .trailing)
+        }
+    }
+}
+
 
 struct CurrencyDetailsView_Previews: PreviewProvider {
     static var previews: some View {

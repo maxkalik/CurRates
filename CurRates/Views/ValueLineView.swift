@@ -9,16 +9,18 @@ import SwiftUI
 
 struct ValueLineView: View {
     
-    private(set) var title: String
+    private(set) var title: String? = nil
     private(set) var value: String
     
     var body: some View {
         HStack {
-            Text(LocalizedStringKey(title))
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.gray)
-            Spacer()
+            if let title = self.title {
+                Text(LocalizedStringKey(title))
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
             if value.isEmpty {
                 Text("-")
                     .font(.title)
@@ -29,7 +31,6 @@ struct ValueLineView: View {
                     .font(.title)
                     .fontWeight(.bold)
             }
-            
         }.padding(.top, 2)
     }
 }

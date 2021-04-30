@@ -47,29 +47,16 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
     
-    var details: [Details] {
-        return [
-            Details(unitTitle: "USD",
-                    rateTypeTitle: "Transfer",
-                    sell: currency.price(.transfer, .sell, unit: .USD),
-                    buy: currency.price(.transfer, .buy, unit: .USD)
-            ),
-            Details(unitTitle: "USD",
-                    rateTypeTitle: "Rate",
-                    sell: currency.price(.rate, .sell, unit: .USD),
-                    buy: currency.price(.rate, .buy, unit: .USD)
-            ),
-            Details(unitTitle: "EUR",
-                    rateTypeTitle: "Transfer",
-                    sell: currency.price(.transfer, .sell, unit: .EUR),
-                    buy: currency.price(.transfer, .buy, unit: .EUR)
-            ),
-            Details(unitTitle: "EUR",
-                    rateTypeTitle: "Rate",
-                    sell: currency.price(.rate, .sell, unit: .EUR),
-                    buy: currency.price(.rate, .buy, unit: .EUR)
-            )
-        ]
+    var details: [CurrencyDetails] {
+        let transferUsd = Details(sell: currency.price(.transfer, .sell, unit: .USD), buy: currency.price(.transfer, .buy, unit: .USD))
+        let rateUsd = Details(sell: currency.price(.rate, .sell, unit: .USD), buy: currency.price(.rate, .buy, unit: .USD))
+        let usd = CurrencyDetails(title: .USD, transfer: transferUsd, rate: rateUsd)
+        
+        let transferEur = Details(sell: currency.price(.transfer, .sell, unit: .EUR), buy: currency.price(.transfer, .buy, unit: .EUR))
+        let rateEur = Details(sell: currency.price(.rate, .sell, unit: .EUR), buy: currency.price(.rate, .buy, unit: .EUR))
+        let eur = CurrencyDetails(title: .EUR, transfer: transferEur, rate: rateEur)
+        
+        return [ usd, eur ]
     }
 }
 
