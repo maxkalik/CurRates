@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  CurRates
+
+  Created by Maksim Kalik on 4/30/21.
+  
+*/
+
+"NavBarTitle"              = "Currencies";
+"ButtonTitleTryAgain"      = "Try again";
+"ButtonTitleCancel"        = "Cancel";
+"Sell"                     = "Sell";
+"Buy"                      = "Buy";
+"SwitchTitleShowOnWidget"  = "Show on Widget";
+"SearchBarPlaceholder"     = "Search";
+"ErrorMessageGeneral"      = "Something went wrong";

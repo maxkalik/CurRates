@@ -40,8 +40,8 @@ struct CurrencyDetailsView: View {
                 Divider()
                 VStack {
                     ValueHeadingView(leftTitle: detail.unitTitle, rightTitle: detail.rateTypeTitle)
-                    ValueLineView(title: "SELL", value: detail.sell)
-                    ValueLineView(title: "BUY", value: detail.buy)
+                    ValueLineView(title: "Sell", value: detail.sell)
+                    ValueLineView(title: "Buy", value: detail.buy)
                 }.frame(width: 260).padding(.top, 10)
             }
         }

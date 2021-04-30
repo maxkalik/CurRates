@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  CurRates
+
+  Created by Maksim Kalik on 4/30/21.
+  
+*/
+
+"NavBarTitle"              = "Курсы валют";
+"ButtonTitleTryAgain"      = "Обновить";
+"ButtonTitleCancel"        = "Отменить";
+"Sell"                     = "Продажа";
+"Buy"                      = "Покупка";
+"SwitchTitleShowOnWidget"  = "Показать на Виджете";
+"SearchBarPlaceholder"     = "Поиск";
+"ErrorMessageGeneral"      = "Что-то пошло не так";

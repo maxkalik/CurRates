@@ -33,7 +33,7 @@ struct CurRatesView: View {
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, unit: $unit)
-                    .navigationBarTitle(Text("Currencies"), displayMode: .large)
+                    .navigationBarTitle(Text(LocalizedStringKey("NavBarTitle")), displayMode: .large)
                     .navigationBarItems(
                         leading: Text(currenciesViewModel.date)
                             .fontWeight(.bold)

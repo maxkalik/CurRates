@@ -14,7 +14,7 @@ struct ValueLineView: View {
     
     var body: some View {
         HStack {
-            Text(title)
+            Text(LocalizedStringKey(title))
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.gray)
@@ -25,7 +25,7 @@ struct ValueLineView: View {
                     .fontWeight(.light)
                     .foregroundColor(.gray)
             } else {
-                Text(value)
+                Text(LocalizedStringKey(value))
                     .font(.title)
                     .fontWeight(.bold)
             }
