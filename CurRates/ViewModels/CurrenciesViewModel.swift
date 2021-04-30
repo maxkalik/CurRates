@@ -20,9 +20,13 @@ class CurrenciesViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     func combineLoad() {
+        
+        let language = Locale.current.language
+        let location = Locale.current.location
+
         isLoading = true
         cancellable = NetworkService
-            .fetchCurrencies(with: [.language: .EN, .location: .LV])
+            .fetchCurrencies(with: [.language: language, .location: location])
             .catch { [self] failureReason -> Just<Currencies> in
                 isLoading = false
                 isError = true
