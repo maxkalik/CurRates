@@ -14,3 +14,7 @@
 "SwitchTitleShowOnWidget"  = "Show on Widget";
 "SearchBarPlaceholder"     = "Search";
 "ErrorMessageGeneral"      = "Something went wrong";
+"Transfer"                 = "Transfer";
+"Rate"                     = "Rate";
+"USD"                      = "USD";
+"EUR"                      = "EUR";

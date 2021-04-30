@@ -13,11 +13,11 @@ struct ValueHeadingView: View {
     
     var body: some View {
         HStack {
-            Text(leftTitle)
+            Text(LocalizedStringKey(leftTitle))
                 .font(.title3)
                 .fontWeight(.bold)
             Spacer()
-            Text(rightTitle)
+            Text(LocalizedStringKey(rightTitle))
             
         }
     }

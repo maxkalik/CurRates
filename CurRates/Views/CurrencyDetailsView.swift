@@ -28,7 +28,7 @@ struct CurrencyDetailsView: View {
                 .padding(.bottom, 20)
             Divider()
             Toggle(isOn: $isShowOnWidget) {
-                Text("Show on Widget")
+                Text(LocalizedStringKey("SwitchTitleShowOnWidget"))
             }.onChange(of: isShowOnWidget) { isOn in
                 currency.showAtWidget(currencyId: currency.id)
             }.onAppear {

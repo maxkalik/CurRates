@@ -6,11 +6,15 @@
   
 */
 
-"NavBarTitle"              = "Currencies";
-"ButtonTitleTryAgain"      = "Try again";
-"ButtonTitleCancel"        = "Cancel";
-"Sell"                     = "Sell";
-"Buy"                      = "Buy";
-"SwitchTitleShowOnWidget"  = "Show on Widget";
-"SearchBarPlaceholder"     = "Search";
-"ErrorMessageGeneral"      = "Something went wrong";
+"NavBarTitle"              = "Valūta";
+"ButtonTitleTryAgain"      = "Mēģiniet vēlreizn";
+"ButtonTitleCancel"        = "Atcelt";
+"Sell"                     = "Pārdot";
+"Buy"                      = "Pirkt";
+"SwitchTitleShowOnWidget"  = "Rādīt logrīkā";
+"SearchBarPlaceholder"     = "meklēt";
+"ErrorMessageGeneral"      = "Kaut kas nogāja greizi";
+"Transfer"                 = "Pārskaitījums";
+"Rate"                     = "Cena";
+"USD"                      = "ASV dolārs";
+"EUR"                      = "Eiro";
