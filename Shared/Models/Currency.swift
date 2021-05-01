@@ -18,12 +18,18 @@ enum RateType: String {
 }
 
 struct Currency: Decodable {
+    
+    enum Unit: String, Equatable, CaseIterable {
+        case EUR = "€"
+        case USD = "$"
+    }
+    
     let id: String
     let description: String
     let reverseUsdQuot: Bool
     let rates: [Rate]
     
-    var unit: CurrencyUnit = .EUR
+    var unit: Unit = .EUR
     
     private enum CodingKeys: String, CodingKey {
         case id, description, reverseUsdQuot, rates
@@ -33,7 +39,7 @@ struct Currency: Decodable {
 extension Currency {
     private typealias CurrencyType = (RateType, RateAction)
     
-    func price(_ rateType: RateType, _ rateAction: RateAction, unit: CurrencyUnit? = nil) -> String {
+    func price(_ rateType: RateType, _ rateAction: RateAction, unit: Unit? = nil) -> String {
         let currencyType: CurrencyType = (rateType, rateAction)
         if let currencyUnit = unit {
             let index = currencyUnit == .USD ? 1 : 0
@@ -44,7 +50,7 @@ extension Currency {
         }
     }
     
-    private func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: CurrencyUnit) -> String {
+    private func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: Unit) -> String {
         guard let price = getCurrency(currencyType, from: rates[rateIndex]), let floatValue = Float(price) else { return "" }
         return String(format: "%.3f", reverseUsdQuot && currencyUnit == .USD ? 1 / floatValue : floatValue)
     }
@@ -62,7 +68,7 @@ extension Currency {
         }
     }
     
-    mutating func updateCurrencyUnit(unit: CurrencyUnit) {
+    mutating func updateCurrencyUnit(unit: Unit) {
         self.unit = unit
     }
 }

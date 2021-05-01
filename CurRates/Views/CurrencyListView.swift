@@ -10,7 +10,7 @@ import SwiftUI
 struct CurrencyListView: View {
     
     let currencies: [CurrencyViewModel]
-    @Binding var unit: CurrencyUnit
+    @Binding var unit: Currency.Unit
     
     var body: some View {
         List(currencies) { currency in

@@ -57,7 +57,7 @@ struct CurRatesWidgetEntryView : View {
 
 @main
 struct CurRatesWidget: Widget {
-    let kind: String = "CurRatesWidget"
+    let kind: String = Constants.widgetKind
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in

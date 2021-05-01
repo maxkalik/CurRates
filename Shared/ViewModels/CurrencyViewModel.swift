@@ -8,11 +8,6 @@
 import SwiftUI
 import WidgetKit
 
-enum CurrencyUnit: String, Equatable, CaseIterable {
-    case EUR = "€"
-    case USD = "$"
-}
-
 class CurrencyViewModel: Identifiable, ObservableObject {
     
     private(set) var isOnWidgetSelected = false
@@ -62,7 +57,7 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
 
-    func updateCurrencyUnit(_ currency: CurrencyUnit) {
+    func updateCurrencyUnit(_ currency: Currency.Unit) {
         self.currency.updateCurrencyUnit(unit: currency)
     }
     
@@ -74,6 +69,6 @@ extension CurrencyViewModel {
     func showAtWidget(currencyId id: String) {
         guard let data = try? JSONEncoder().encode(id) else { return }
         currencyData = data
-        WidgetCenter.shared.reloadTimelines(ofKind: "CurRatesWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.widgetKind)
     }
 }

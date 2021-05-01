@@ -11,7 +11,7 @@ struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @StateObject private var searchBar: SearchBar = SearchBar()
-    @State private var unit: CurrencyUnit = .EUR
+    @State private var unit: Currency.Unit = .EUR
     
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
@@ -26,8 +26,8 @@ struct CurRatesView: View {
         if currenciesViewModel.isLoading {
             ProgressView()
         } else if currenciesViewModel.isError {
-            Text("Something went wrong")
-            Button("Try again") {
+            Text(LocalizedStringKey("ErrorMessageGeneral"))
+            Button(LocalizedStringKey("ButtonTitleTryAgain")) {
                 currenciesViewModel.combineLoad()
             }.padding(.top, 10)
         } else {
