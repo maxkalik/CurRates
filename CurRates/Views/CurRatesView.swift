@@ -10,7 +10,7 @@ import SwiftUI
 struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
-    @ObservedObject private var searchBar: SearchBar = SearchBar()
+    @StateObject private var searchBar: SearchBar = SearchBar()
     @State private var unit: CurrencyUnit = .EUR
     
     init() {

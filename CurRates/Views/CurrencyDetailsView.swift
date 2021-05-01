@@ -10,12 +10,8 @@ import SwiftUI
 
 struct CurrencyDetailsView: View {
     
-    @ObservedObject var currency: CurrencyViewModel
+    @StateObject var currency: CurrencyViewModel
     @State private var isShowOnWidget: Bool = false
-    
-    init(currency: CurrencyViewModel) {
-        self.currency = currency
-    }
     
     var body: some View {
         return ScrollView {
@@ -27,13 +23,11 @@ struct CurrencyDetailsView: View {
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)
             Divider()
-            Toggle(isOn: $isShowOnWidget) {
+            Toggle(isOn: $isShowOnWidget.onChange(toggleChanged)) {
                 Text(LocalizedStringKey("SwitchTitleShowOnWidget"))
-            }.onChange(of: isShowOnWidget) { isOn in
-                currency.showAtWidget(currencyId: currency.id)
-            }.onAppear {
-                isShowOnWidget = currency.isOnWidgetSelected
-            }.disabled(isShowOnWidget)
+            }
+                .onAppear { isShowOnWidget = currency.isOnWidgetSelected }
+                .disabled(isShowOnWidget)
                 .padding(.horizontal, 30)
                 .padding(.vertical, 16)
             ForEach(currency.details) { details in
@@ -52,63 +46,9 @@ struct CurrencyDetailsView: View {
         .padding(.top, 1)
         .padding(.bottom, 30)
     }
-}
-
-struct ColumnTitles: View {
     
-    let title: LocalizedStringKey
-    let subTitles: [String]
-    
-    init(title: LocalizedStringKey, _ subTitles: [String]) {
-        self.title = title
-        self.subTitles = subTitles
-    }
-    
-    var body: some View {
-        return VStack(alignment: .leading) {
-                Text(title)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 8)
-                    .frame(maxHeight: 38, alignment: .leading)
-            
-                ForEach(subTitles, id: \.self) { subTitle in
-                    Text(LocalizedStringKey(subTitle))
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.bottom, 8)
-                        .frame(maxWidth: .infinity, maxHeight: 38, alignment: .leading)
-                
-                }
-            }.frame(maxWidth: .infinity)
-    }
-}
-
-struct Column: View {
-    
-    let title: LocalizedStringKey
-    let values: [String]
-    
-    init(title: LocalizedStringKey, _ values: [String]) {
-        self.title = title
-        self.values = values
-    }
-    
-    var body: some View {
-        return VStack(alignment: .trailing) {
-            Text(title)
-                .padding(.bottom, 8)
-                .frame(maxHeight: 38, alignment: .trailing)
-            
-            ForEach(values, id: \.self) { value in
-                Text(value)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 8)
-                    .frame(maxHeight: 38, alignment: .trailing)
-            }
-        }
+    func toggleChanged(_ value: Bool) {
+        currency.showAtWidget(currencyId: currency.id)
     }
 }
 
