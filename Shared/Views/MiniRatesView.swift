@@ -28,7 +28,7 @@ struct MiniRatesView: View {
                     .padding(.trailing, reversed ? 5 : 0)
             }
         } else {
-            Text("—")
+            Text(Constants.emptyValue)
                 .padding(.trailing, 8)
                 .foregroundColor(.gray)
         }
