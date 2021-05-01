@@ -42,15 +42,9 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
     
-    var details: [CurrencyDetails] {
-        let transferUsd = Details(sell: currency.price(.transfer, .sell, unit: .USD), buy: currency.price(.transfer, .buy, unit: .USD))
-        let rateUsd = Details(sell: currency.price(.rate, .sell, unit: .USD), buy: currency.price(.rate, .buy, unit: .USD))
-        let usd = CurrencyDetails(title: .USD, transfer: transferUsd, rate: rateUsd)
-        
-        let transferEur = Details(sell: currency.price(.transfer, .sell, unit: .EUR), buy: currency.price(.transfer, .buy, unit: .EUR))
-        let rateEur = Details(sell: currency.price(.rate, .sell, unit: .EUR), buy: currency.price(.rate, .buy, unit: .EUR))
-        let eur = CurrencyDetails(title: .EUR, transfer: transferEur, rate: rateEur)
-        
+    var details: [CurrencyDetailsModelView] {
+        let usd = CurrencyDetailsModelView(unit: .USD, currency: currency)
+        let eur = CurrencyDetailsModelView(unit: .EUR, currency: currency)
         return [ usd, eur ]
     }
 }

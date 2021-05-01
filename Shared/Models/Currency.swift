@@ -7,29 +7,33 @@
 
 import Foundation
 
-enum RateAction: String {
-    case sell
-    case buy
-}
-
-enum RateType: String {
-    case transfer
-    case rate
-}
-
 struct Currency: Decodable {
-    
-    enum Unit: String, Equatable, CaseIterable {
-        case EUR = "€"
-        case USD = "$"
-    }
     
     let id: String
     let description: String
     let reverseUsdQuot: Bool
     let rates: [Rate]
-    
     var unit: Unit = .EUR
+    
+    struct Details {
+        var sell: String
+        var buy: String
+    }
+    
+    enum RateAction: String {
+        case sell
+        case buy
+    }
+
+    enum RateType: String {
+        case transfer
+        case rate
+    }
+    
+    enum Unit: String, Equatable, CaseIterable {
+        case EUR = "€"
+        case USD = "$"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case id, description, reverseUsdQuot, rates
