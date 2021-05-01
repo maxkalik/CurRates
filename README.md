@@ -20,5 +20,6 @@ Implement simple currency rates check app using endpoint for currency rate.
 ## Updates
 
 - Network Layer has improved with Combine
+- Added Localization (English, Latvian, Russian)
 
 ![CurRates App](Documentation/screenshots.png)

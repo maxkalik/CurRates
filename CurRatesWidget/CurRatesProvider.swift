@@ -14,8 +14,11 @@ public class CureRatesProvider {
     
     static func getCurrency(by id: String, completion: @escaping (CurrencyViewModel) -> Void) {
         
+        let language = Locale.current.language
+        let location = Locale.current.location
+        
         cancellable = NetworkService
-            .fetchCurrencies(with: [.language: .EN, .location: .LV])
+            .fetchCurrencies(with: [.language: language, .location: location])
             .catch { failureReason -> Just<Currencies> in
                 return Just(Currencies(data: [], success: false))
             }

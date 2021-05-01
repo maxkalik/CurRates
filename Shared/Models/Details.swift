@@ -7,10 +7,21 @@
 
 import Foundation
 
-struct Details: Identifiable {
-    var unitTitle: String
-    var rateTypeTitle: String
+struct Details {
     var sell: String
     var buy: String
-    var id: UUID = UUID()
+}
+
+struct CurrencyDetails: Identifiable {
+    
+    
+    enum CurrencyTitle: String {
+        case EUR = "EUR"
+        case USD = "USD"
+    }
+    
+    let id = UUID()
+    let title: CurrencyTitle
+    let transfer: Details
+    let rate: Details
 }

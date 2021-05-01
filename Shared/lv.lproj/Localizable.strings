@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  CurRates
+
+  Created by Maksim Kalik on 4/30/21.
+  
+*/
+
+"NavBarTitle"              = "Valūta";
+"ButtonTitleTryAgain"      = "Mēģiniet vēlreizn";
+"ButtonTitleCancel"        = "Atcelt";
+"Sell"                     = "Pārdot";
+"Buy"                      = "Pirkt";
+"SwitchTitleShowOnWidget"  = "Rādīt logrīkā";
+"SearchBarPlaceholder"     = "meklēt";
+"ErrorMessageGeneral"      = "Kaut kas nogāja greizi";
+"Transfer"                 = "Pārskaitījums";
+"Rate"                     = "Cena";
+"USD"                      = "ASV dolārs";
+"EUR"                      = "Eiro";

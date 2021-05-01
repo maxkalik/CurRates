@@ -12,12 +12,6 @@ final class NetworkServiceHelper {
     static let shared = NetworkServiceHelper()
     private init() {}
     
-    enum Language: String {
-        case LV
-        case EN
-        case RU
-    }
-
     enum Query: String {
         case language
         case location
@@ -27,7 +21,7 @@ final class NetworkServiceHelper {
         case post = "POST"
     }
     
-    typealias Queries = [Query : Language]
+    typealias Queries = [Query : Locale.Language]
     
     func prepareQueries(_ queries: Queries, in url: URL?) -> URL? {
         guard let url = url else {

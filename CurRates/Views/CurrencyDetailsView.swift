@@ -10,12 +10,8 @@ import SwiftUI
 
 struct CurrencyDetailsView: View {
     
-    @ObservedObject var currency: CurrencyViewModel
+    @StateObject var currency: CurrencyViewModel
     @State private var isShowOnWidget: Bool = false
-    
-    init(currency: CurrencyViewModel) {
-        self.currency = currency
-    }
     
     var body: some View {
         return ScrollView {
@@ -27,28 +23,35 @@ struct CurrencyDetailsView: View {
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)
             Divider()
-            Toggle(isOn: $isShowOnWidget) {
-                Text("Show on Widget")
-            }.onChange(of: isShowOnWidget) { isOn in
-                currency.showAtWidget(currencyId: currency.id)
-            }.onAppear {
-                isShowOnWidget = currency.isOnWidgetSelected
-            }.disabled(isShowOnWidget)
+            Toggle(isOn: $isShowOnWidget.onChange(toggleChanged)) {
+                Text(LocalizedStringKey("SwitchTitleShowOnWidget"))
+            }
+                .onAppear { isShowOnWidget = currency.isOnWidgetSelected }
+                .disabled(isShowOnWidget)
                 .padding(.horizontal, 30)
                 .padding(.vertical, 16)
-            ForEach(currency.details) { detail in
+            ForEach(currency.details) { details in
                 Divider()
-                VStack {
-                    ValueHeadingView(leftTitle: detail.unitTitle, rightTitle: detail.rateTypeTitle)
-                    ValueLineView(title: "SELL", value: detail.sell)
-                    ValueLineView(title: "BUY", value: detail.buy)
-                }.frame(width: 260).padding(.top, 10)
+                HStack (alignment: .firstTextBaseline) {
+                    ColumnTitles(title: LocalizedStringKey(details.title.rawValue), ["Transfer", "Rate"])
+                    Column(title: LocalizedStringKey("Sell"), [details.transfer.sell, details.transfer.buy])
+                        .padding(.trailing, 8)
+                    Column(title: LocalizedStringKey("Buy"), [details.rate.sell, details.rate.buy])
+                }
+                .padding(.top, 10)
+                .padding(.horizontal, 30)
             }
+            
         }
         .padding(.top, 1)
         .padding(.bottom, 30)
     }
+    
+    func toggleChanged(_ value: Bool) {
+        currency.showAtWidget(currencyId: currency.id)
+    }
 }
+
 
 struct CurrencyDetailsView_Previews: PreviewProvider {
     static var previews: some View {

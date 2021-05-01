@@ -10,13 +10,12 @@ import SwiftUI
 struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
-    @ObservedObject private var searchBar: SearchBar = SearchBar()
+    @StateObject private var searchBar: SearchBar = SearchBar()
     @State private var unit: CurrencyUnit = .EUR
     
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 34, weight: .bold), .foregroundColor: UIColor.systemGray4]
-        // currenciesViewModel.load()
         currenciesViewModel.combineLoad()
     }
 
@@ -29,13 +28,12 @@ struct CurRatesView: View {
         } else if currenciesViewModel.isError {
             Text("Something went wrong")
             Button("Try again") {
-                // currenciesViewModel.load()
                 currenciesViewModel.combineLoad()
             }.padding(.top, 10)
         } else {
             NavigationView {
                 CurrencyListView(currencies: currenciesList, unit: $unit)
-                    .navigationBarTitle(Text("Currencies"), displayMode: .large)
+                    .navigationBarTitle(Text(LocalizedStringKey("NavBarTitle")), displayMode: .large)
                     .navigationBarItems(
                         leading: Text(currenciesViewModel.date)
                             .fontWeight(.bold)
