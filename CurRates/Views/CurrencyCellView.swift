@@ -10,7 +10,7 @@ import SwiftUI
 struct CurrencyCellView: View {
     @ObservedObject var currency: CurrencyViewModel
     
-    init(currency: CurrencyViewModel, unit: CurrencyUnit) {
+    init(currency: CurrencyViewModel, unit: Currency.Unit) {
         self.currency = currency
         self.currency.updateCurrencyUnit(unit)
     }

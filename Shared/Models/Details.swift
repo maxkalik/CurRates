@@ -13,15 +13,8 @@ struct Details {
 }
 
 struct CurrencyDetails: Identifiable {
-    
-    
-    enum CurrencyTitle: String {
-        case EUR = "EUR"
-        case USD = "USD"
-    }
-    
     let id = UUID()
-    let title: CurrencyTitle
+    let title: Currency.Unit
     let transfer: Details
     let rate: Details
 }
