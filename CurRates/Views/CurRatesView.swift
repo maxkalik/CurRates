@@ -26,8 +26,8 @@ struct CurRatesView: View {
         if currenciesViewModel.isLoading {
             ProgressView()
         } else if currenciesViewModel.isError {
-            Text("Something went wrong")
-            Button("Try again") {
+            Text(LocalizedStringKey("ErrorMessageGeneral"))
+            Button(LocalizedStringKey("ButtonTitleTryAgain")) {
                 currenciesViewModel.combineLoad()
             }.padding(.top, 10)
         } else {

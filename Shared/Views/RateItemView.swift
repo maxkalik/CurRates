@@ -15,7 +15,8 @@ struct RateItemView: View {
     var body: some View {
         HStack(alignment: .bottom) {
             if reversed {
-                Text(LocalizedStringKey(title)).modifier(LabelStyle())
+                Text(LocalizedStringKey(title))
+                    .modifier(LabelStyle())
                     .frame(alignment: .trailing)
                     .padding(.leading, 8)
             }
@@ -26,7 +27,8 @@ struct RateItemView: View {
                 .frame(alignment: .trailing)
                 .padding(.trailing, 2)
             if !reversed {
-                Text(LocalizedStringKey(title)).modifier(LabelStyle())
+                Text(LocalizedStringKey(title))
+                    .modifier(LabelStyle())
                     .frame(alignment: .leading)
             }
         }

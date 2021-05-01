@@ -74,6 +74,6 @@ extension CurrencyViewModel {
     func showAtWidget(currencyId id: String) {
         guard let data = try? JSONEncoder().encode(id) else { return }
         currencyData = data
-        WidgetCenter.shared.reloadTimelines(ofKind: "CurRatesWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.widgetKind)
     }
 }
