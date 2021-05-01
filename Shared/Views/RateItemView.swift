@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RateItemView: View {
-    var title: String
-    var value: String
-    var reversed: Bool
+    private(set) var title: String
+    private(set) var value: String
+    private(set) var reversed: Bool
     
     var body: some View {
         HStack(alignment: .bottom) {
