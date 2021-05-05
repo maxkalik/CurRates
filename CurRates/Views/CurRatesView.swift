@@ -25,13 +25,18 @@ struct CurRatesView: View {
         if currenciesViewModel.isLoading {
             ProgressView()
         } else if currenciesViewModel.isError {
-            Text(LocalizedStringKey("ErrorMessageGeneral"))
-            Button(LocalizedStringKey("ButtonTitleTryAgain")) {
-                currenciesViewModel.fetchCurrencies()
-            }.padding(.top, 10)
+            errorMessage()
         } else {
             navigation(currencies: currenciesList)
         }
+    }
+    
+    @ViewBuilder
+    private func errorMessage() -> some View {
+        Text(LocalizedStringKey("ErrorMessageGeneral"))
+        Button(LocalizedStringKey("ButtonTitleTryAgain")) {
+            currenciesViewModel.fetchCurrencies()
+        }.padding(.top, 10)
     }
     
     private func navigation(currencies: [CurrencyViewModel]) -> some View {

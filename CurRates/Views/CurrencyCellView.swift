@@ -17,18 +17,25 @@ struct CurrencyCellView: View {
     
     var body: some View {
         return HStack {
-            VStack(alignment: .leading) {
-                Text(currency.id)
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                Text(currency.description)
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-            }
-            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            VStack(alignment: .leading) { currencyTitle }
+                .padding(titleEdge())
             Spacer()
             MiniRatesView(buy: currency.buy, sell: currency.sell)
         }
+    }
+    
+    @ViewBuilder
+    private var currencyTitle: some View {
+        Text(currency.id)
+            .font(.system(size: 22))
+            .fontWeight(.bold)
+        Text(currency.description)
+            .font(.system(size: 18))
+            .foregroundColor(.gray)
+    }
+    
+    private func titleEdge() -> EdgeInsets {
+        return EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
     }
 }
 
