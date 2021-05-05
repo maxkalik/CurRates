@@ -14,9 +14,8 @@ struct CurRatesView: View {
     @State private var unit: Currency.Unit = .EUR
     
     init() {
-        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22, weight: .bold),.foregroundColor: UIColor.systemGray4]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 34, weight: .bold), .foregroundColor: UIColor.systemGray4]
-        currenciesViewModel.combineLoad()
+        CurRatesViewHelper.shared.navigationBarAppearance()
+        currenciesViewModel.fetchCurrencies()
     }
 
     var body: some View {
@@ -28,22 +27,29 @@ struct CurRatesView: View {
         } else if currenciesViewModel.isError {
             Text(LocalizedStringKey("ErrorMessageGeneral"))
             Button(LocalizedStringKey("ButtonTitleTryAgain")) {
-                currenciesViewModel.combineLoad()
+                currenciesViewModel.fetchCurrencies()
             }.padding(.top, 10)
         } else {
-            NavigationView {
-                CurrencyListView(currencies: currenciesList, unit: $unit)
-                    .navigationBarTitle(Text(LocalizedStringKey("NavBarTitle")), displayMode: .large)
-                    .navigationBarItems(
-                        leading: Text(currenciesViewModel.date)
-                            .fontWeight(.bold)
-                            .font(.system(size: 22))
-                            .padding(.bottom, 4),
-                        trailing: SegmentedPickerView(unit: $unit))
-                    .add(self.searchBar)
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
+            navigation(currencies: currenciesList)
         }
+    }
+    
+    private func navigation(currencies: [CurrencyViewModel]) -> some View {
+        return NavigationView {
+            CurrencyListView(currencies: currencies, unit: $unit)
+                .navigationBarTitle(LocalizedStringKey("NavBarTitle"), displayMode: .large)
+                .navigationBarItems(
+                    leading: leadingBarItem,
+                    trailing: SegmentedPickerView(unit: $unit))
+                .add(self.searchBar)
+        }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    private var leadingBarItem: some View {
+        return Text(currenciesViewModel.date)
+            .fontWeight(.bold)
+            .font(.system(size: 22))
+            .padding(.bottom, 4)
     }
 }
 

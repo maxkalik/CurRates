@@ -19,7 +19,7 @@ class CurrenciesViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
-    func combineLoad() {
+    func fetchCurrencies() {
         
         let language = Locale.current.language
         let location = Locale.current.location
