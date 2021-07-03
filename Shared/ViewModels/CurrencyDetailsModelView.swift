@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencyDetailsModelView: Identifiable {
+struct CurrencyDetailsViewModel: Identifiable {
     let id = UUID()
     let title: Currency.Unit
     let transfer: Currency.Details

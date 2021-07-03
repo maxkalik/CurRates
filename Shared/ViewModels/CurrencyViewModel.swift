@@ -42,9 +42,9 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
     
-    var details: [CurrencyDetailsModelView] {
-        let usd = CurrencyDetailsModelView(unit: .USD, currency: currency)
-        let eur = CurrencyDetailsModelView(unit: .EUR, currency: currency)
+    var details: [CurrencyDetailsViewModel] {
+        let usd = CurrencyDetailsViewModel(unit: .USD, currency: currency)
+        let eur = CurrencyDetailsViewModel(unit: .EUR, currency: currency)
         return [ usd, eur ]
     }
 }
@@ -56,7 +56,7 @@ extension CurrencyViewModel {
     }
     
     func getCurrencyId() -> String {
-        guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return Constants.defaultCurrencyOnWidget }
+        guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return Configuration.defaultCurrencyOnWidget }
         return id
     }
     

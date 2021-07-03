@@ -13,7 +13,7 @@ struct Currency: Decodable {
     let description: String
     let reverseUsdQuot: Bool
     let rates: [Rate]
-    var unit: Unit = Settings.currency
+    var unit: Unit = Configuration.currency
     
     struct Details {
         var sell: String

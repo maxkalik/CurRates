@@ -34,9 +34,9 @@ struct CurrencyDetailsView: View {
                 Divider()
                 HStack (alignment: .firstTextBaseline) {
                     ColumnTitles(title: LocalizedStringKey(details.title.rawValue), ["Transfer", "Rate"])
-                    Column(title: LocalizedStringKey("Sell"), [details.transfer.sell, details.transfer.buy])
+                    Column(title: LocalizedStringKey("Sell"), [details.transfer.sell, details.rate.sell])
                         .padding(.trailing, 8)
-                    Column(title: LocalizedStringKey("Buy"), [details.rate.sell, details.rate.buy])
+                    Column(title: LocalizedStringKey("Buy"), [details.transfer.buy, details.rate.buy])
                 }
                 .padding(.top, 10)
                 .padding(.horizontal, 30)

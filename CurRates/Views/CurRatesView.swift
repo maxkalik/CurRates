@@ -11,7 +11,7 @@ struct CurRatesView: View {
     
     @ObservedObject private var currenciesViewModel = CurrenciesViewModel()
     @StateObject private var searchBar: SearchBar = SearchBar()
-    @State private var unit: Currency.Unit = Settings.currency
+    @State private var unit: Currency.Unit = Configuration.currency
     
     init() {
         CurRatesViewHelper.shared.navigationBarAppearance()

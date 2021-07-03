@@ -12,10 +12,10 @@ struct Constants {
     static let suiteName               = "group.maxkalik.com.CurRates.Currencies"
     static let widgetKind              = "CurRatesWidget"
     static let appStorageKey           = "currency"
-    static let defaultCurrencyOnWidget = "RUR"
     static let emptyValue              = "•••"
 }
 
-struct Settings {
+struct Configuration {
     static let currency: Currency.Unit = .USD
+    static let defaultCurrencyOnWidget = "RUR"
 }
