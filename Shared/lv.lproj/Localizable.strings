@@ -16,5 +16,5 @@
 "ErrorMessageGeneral"      = "Kaut kas nogāja greizi";
 "Transfer"                 = "Pārskaitījums";
 "Rate"                     = "Cena";
-"€"                      = "Eiro";
-"$"                      = "ASV dolārs";
+"EUR"                      = "Eiro";
+"USD"                      = "ASV dolārs";

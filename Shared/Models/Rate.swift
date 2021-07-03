@@ -8,7 +8,7 @@
 import Foundation
 
 struct Rate: Decodable {
-    let currency: String
+    let currency: Currency.Unit
     let description: String
     let sellRate: String?
     let buyRate: String?

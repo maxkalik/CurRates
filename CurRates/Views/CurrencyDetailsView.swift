@@ -55,6 +55,6 @@ struct CurrencyDetailsView: View {
 
 struct CurrencyDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyDetailsView(currency: CurrencyViewModel(currency: Currency.aud))
+        CurrencyDetailsView(currency: CurrencyViewModel(currency: Currency.gbr))
     }
 }

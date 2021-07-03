@@ -29,6 +29,6 @@ struct CurRatesWidgetView: View {
 
 struct CurRatesWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        CurRatesWidgetView(currency: CurrencyViewModel(currency: Currency.aud))
+        CurRatesWidgetView(currency: CurrencyViewModel(currency: Currency.gbr))
     }
 }

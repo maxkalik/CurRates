@@ -15,7 +15,7 @@ struct SegmentedPickerView: View {
         HStack {
             Picker(selection: $unit, label: Text("")) {
                 ForEach(Currency.Unit.allCases, id: \.self) {
-                    Text($0.rawValue).tag($0)
+                    Text(Constants.segmentPickerContent[$0] ?? "").tag($0)
                 }
             }.pickerStyle(SegmentedPickerStyle())
         }

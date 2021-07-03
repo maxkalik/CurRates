@@ -30,9 +30,9 @@ struct Currency: Decodable {
         case rate
     }
     
-    enum Unit: String, Equatable, CaseIterable {
-        case EUR = "€"
-        case USD = "$"
+    enum Unit: String, CaseIterable, Decodable {
+        case EUR
+        case USD
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -55,7 +55,7 @@ extension Currency {
     
     private func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: Unit) -> String {
         guard let price = getCurrency(currencyType, from: rates[rateIndex]), let floatValue = Float(price) else { return "" }
-        return String(format: "%.3f", reverseUsdQuot && currencyUnit == .USD ? 1 / floatValue : floatValue)
+        return String(format: "%.3f", reverseUsdQuot && rates[rateIndex].currency == .USD ? 1 / floatValue : floatValue)
     }
     
     private func getCurrency(_ currencyType: CurrencyType, from rate: Rate) -> String? {

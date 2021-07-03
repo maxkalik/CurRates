@@ -16,5 +16,5 @@
 "ErrorMessageGeneral"      = "Something went wrong";
 "Transfer"                 = "Transfer";
 "Rate"                     = "Rate";
-"€"                      = "EUR";
-"$"                      = "USD";
+"EUR"                      = "EUR";
+"USD"                      = "USD";

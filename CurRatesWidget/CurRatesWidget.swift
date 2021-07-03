@@ -13,7 +13,7 @@ struct Provider: TimelineProvider {
     @AppStorage("currency", store: UserDefaults(suiteName: Constants.suiteName)) var currencyData = Data()
     
     func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.aud))
+        return SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.gbr))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -71,9 +71,9 @@ struct CurRatesWidget: Widget {
 
 struct CurRatesWidget_Previews: PreviewProvider {
     static var previews: some View {
-        CurRatesWidgetEntryView(entry: SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.aud)))
+        CurRatesWidgetEntryView(entry: SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.gbr)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        CurRatesWidgetEntryView(entry: SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.aud)))
+        CurRatesWidgetEntryView(entry: SimpleEntry(date: Date(), currency: CurrencyViewModel(currency: Currency.gbr)))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

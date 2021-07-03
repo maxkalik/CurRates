@@ -13,6 +13,11 @@ struct Constants {
     static let widgetKind              = "CurRatesWidget"
     static let appStorageKey           = "currency"
     static let emptyValue              = "•••"
+    
+    static let segmentPickerContent: [Currency.Unit: String] = [
+        .USD: "$",
+        .EUR: "€"
+    ]
 }
 
 struct Configuration {

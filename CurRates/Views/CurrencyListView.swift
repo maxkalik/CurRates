@@ -26,6 +26,6 @@ struct CurrencyListView: View {
 
 struct CurrencyView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyListView(currencies: [CurrencyViewModel(currency: Currency.aud)], unit: .constant(.USD))
+        CurrencyListView(currencies: [CurrencyViewModel(currency: Currency.gbr)], unit: .constant(.USD))
     }
 }

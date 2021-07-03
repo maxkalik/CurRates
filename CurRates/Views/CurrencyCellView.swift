@@ -34,6 +34,6 @@ struct CurrencyCellView: View {
 
 struct CurrencyCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyCellView(currency: CurrencyViewModel(currency: Currency.aud), unit: .USD)
+        CurrencyCellView(currency: CurrencyViewModel(currency: Currency.gbr), unit: .USD)
     }
 }

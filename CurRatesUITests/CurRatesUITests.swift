@@ -14,7 +14,7 @@ class CurRatesUITests: XCTestCase {
     func testDefaultSelectedButtonInSegmentControl() {
         let segmentControl = app.navigationBars.segmentedControls
         app.launch()
-        let eurButton = segmentControl.buttons["€"]
+        let eurButton = segmentControl.buttons["$"]
         XCTAssert(eurButton.isSelected)
     }
     

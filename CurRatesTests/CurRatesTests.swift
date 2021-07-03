@@ -10,68 +10,68 @@ import XCTest
 
 class CurRatesTests: XCTestCase {
 
-    private var currency: Currency = Currency.aud
+    private var currency: Currency = Currency.gbr
     private var currenciesViewModel: CurrenciesViewModel = CurrenciesViewModel()
     
-    func testEuroPriceForTransferBuy() {
-        let result = currency.price(.transfer, .buy)
-        XCTAssertEqual(result, "1.592")
+    func roundedResult(_ value: String?, isReverseUsdQuote: Bool = false) -> String {
+        guard let result = Float(value ?? "") else { return "" }
+        if isReverseUsdQuote {
+            return String(format: "%.3f", 1 / result)
+        }
+        return String(format: "%.3f", result)
     }
     
+    func testEuroPriceForTransferBuy() {
+        let result = currency.price(.transfer, .buy, unit: .EUR)
+        let mock = roundedResult(currency.rates[0].buyTransfer)
+        XCTAssertEqual(result, mock)
+    }
+
     func testEuroPriceForTransferSell() {
-        let result = currency.price(.transfer, .sell)
-        XCTAssertEqual(result, "1.514")
+        let result = currency.price(.transfer, .sell, unit: .EUR)
+        let mock = roundedResult(currency.rates[0].sellTransfer)
+        XCTAssertEqual(result, mock)
     }
     
     func testEuroPriceForRateBuy() {
-        let result = currency.price(.rate, .buy)
-        XCTAssertEqual(result, "1.600")
+        let result = currency.price(.rate, .buy, unit: .EUR)
+        let mock = roundedResult(currency.rates[0].buyRate)
+        XCTAssertEqual(result, mock)
     }
     
     func testEuroPriceForRateSell() {
-        let result = currency.price(.rate, .sell)
-        XCTAssertEqual(result, "1.501")
+        let result = currency.price(.rate, .sell, unit: .EUR)
+        let mock = roundedResult(currency.rates[0].sellRate)
+        XCTAssertEqual(result, mock)
     }
     
     func testUsdPriceForTransferBuy() {
         let result = currency.price(.transfer, .buy, unit: .USD)
-        if currency.reverseUsdQuot {
-            XCTAssertEqual(result, "1.281")
-        } else {
-            XCTAssertEqual(result, "0.781")
-        }
+        let mock = roundedResult(currency.rates[1].buyTransfer, isReverseUsdQuote: currency.reverseUsdQuot)
+        XCTAssertEqual(result, mock)
     }
     
     func testUsdPriceForTransferSell() {
         let result = currency.price(.transfer, .sell, unit: .USD)
-        if currency.reverseUsdQuot {
-            XCTAssertEqual(result, "1.347")
-        } else {
-            XCTAssertEqual(result, "0.743")
-        }
+        let mock = roundedResult(currency.rates[1].sellTransfer, isReverseUsdQuote: currency.reverseUsdQuot)
+        XCTAssertEqual(result, mock)
     }
     
     func testUsdPriceForRateBuy() {
         let result = currency.price(.rate, .buy, unit: .USD)
-        if currency.reverseUsdQuot {
-            XCTAssertEqual(result, "1.266")
-        } else {
-            XCTAssertEqual(result, "0.790")
-        }
+        let mock = roundedResult(currency.rates[1].buyRate, isReverseUsdQuote: currency.reverseUsdQuot)
+        XCTAssertEqual(result, mock)
     }
     
     func testUsdPriceForRateSell() {
         let result = currency.price(.rate, .sell, unit: .USD)
-        if currency.reverseUsdQuot {
-            XCTAssertEqual(result, "1.357")
-        } else {
-            XCTAssertEqual(result, "0.737")
-        }
+        let mock = roundedResult(currency.rates[1].sellRate, isReverseUsdQuote: currency.reverseUsdQuot)
+        XCTAssertEqual(result, mock)
         
     }
 
     func testMakeSureThatDefaultSelectedUnitIsEuro() {
-        XCTAssertEqual(currency.unit, .EUR)
+        XCTAssertEqual(currency.unit, Configuration.currency)
     }
     
     func testUnitUpdatingInCurrency() {
