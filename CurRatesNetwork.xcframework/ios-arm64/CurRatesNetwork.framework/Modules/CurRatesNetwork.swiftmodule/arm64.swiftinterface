@@ -1,0 +1,143 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CurRatesNetwork
+import Combine
+@_exported import CurRatesNetwork
+import Foundation
+import Swift
+public struct Currencies : Swift.Decodable {
+  public let data: [CurRatesNetwork.Currency]
+  public let success: Swift.Bool
+  public init(data: [CurRatesNetwork.Currency], success: Swift.Bool)
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Locale {
+  public enum Language : Swift.String {
+    case LV
+    case EN
+    case RU
+    case LT
+    case DE
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var language: Foundation.Locale.Language {
+    get
+  }
+  public var location: Foundation.Locale.Language {
+    get
+  }
+}
+public struct Currency : Swift.Decodable {
+  public let id: Swift.String
+  public let description: Swift.String
+  public let reverseUsdQuot: Swift.Bool
+  public let rates: [CurRatesNetwork.Rate]
+  public var unit: CurRatesNetwork.Currency.Unit
+  public struct Details {
+    public var sell: Swift.String
+    public var buy: Swift.String
+    public init(sell: Swift.String, buy: Swift.String)
+  }
+  public enum RateAction : Swift.String {
+    case sell
+    case buy
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum RateType : Swift.String {
+    case transfer
+    case rate
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum Unit : Swift.String, Swift.Equatable, Swift.CaseIterable {
+    case EUR
+    case USD
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [CurRatesNetwork.Currency.Unit]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CurRatesNetwork.Currency.Unit] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(id: Swift.String, description: Swift.String, reverseUsdQuot: Swift.Bool, rates: [CurRatesNetwork.Rate], unit: CurRatesNetwork.Currency.Unit = .EUR)
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Currency {
+  public func price(_ rateType: CurRatesNetwork.Currency.RateType, _ rateAction: CurRatesNetwork.Currency.RateAction, unit: CurRatesNetwork.Currency.Unit? = nil) -> Swift.String
+  public mutating func updateCurrencyUnit(unit: CurRatesNetwork.Currency.Unit)
+}
+public struct Rate : Swift.Decodable {
+  public let currency: Swift.String
+  public let description: Swift.String
+  public let sellRate: Swift.String?
+  public let buyRate: Swift.String?
+  public let sellTransfer: Swift.String?
+  public let buyTransfer: Swift.String?
+  public init(currency: Swift.String, description: Swift.String, sellRate: Swift.String?, buyRate: Swift.String?, sellTransfer: Swift.String?, buyTransfer: Swift.String?)
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers final public class NetworkServiceHelper {
+  public enum Query : Swift.String {
+    case language
+    case location
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum HTTPMethod : Swift.String {
+    case post
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public typealias Queries = [CurRatesNetwork.NetworkServiceHelper.Query : Foundation.Locale.Language]
+  final public func prepareQueries(_ queries: CurRatesNetwork.NetworkServiceHelper.Queries, in url: Foundation.URL?) -> Foundation.URL?
+  final public func prepareRequest(from url: Foundation.URL?, httpMethod: CurRatesNetwork.NetworkServiceHelper.HTTPMethod) -> Foundation.URLRequest?
+  @objc deinit
+}
+public enum CurRatesNetworkService {
+  public enum FailureReason : Swift.Error {
+    case sessionFailed(error: Foundation.URLError)
+    case decodingFailed
+    case invalidEndpoint
+    case other(Swift.Error)
+  }
+}
+extension CurRatesNetworkService {
+  public static func fetchCurrencies(with queries: CurRatesNetwork.NetworkServiceHelper.Queries? = nil) -> Combine.AnyPublisher<CurRatesNetwork.Currencies, CurRatesNetwork.CurRatesNetworkService.FailureReason>
+}
+extension Foundation.Locale.Language : Swift.Equatable {}
+extension Foundation.Locale.Language : Swift.Hashable {}
+extension Foundation.Locale.Language : Swift.RawRepresentable {}
+extension CurRatesNetwork.Currency.RateAction : Swift.Equatable {}
+extension CurRatesNetwork.Currency.RateAction : Swift.Hashable {}
+extension CurRatesNetwork.Currency.RateAction : Swift.RawRepresentable {}
+extension CurRatesNetwork.Currency.RateType : Swift.Equatable {}
+extension CurRatesNetwork.Currency.RateType : Swift.Hashable {}
+extension CurRatesNetwork.Currency.RateType : Swift.RawRepresentable {}
+extension CurRatesNetwork.Currency.Unit : Swift.Hashable {}
+extension CurRatesNetwork.Currency.Unit : Swift.RawRepresentable {}
+extension CurRatesNetwork.NetworkServiceHelper.Query : Swift.Equatable {}
+extension CurRatesNetwork.NetworkServiceHelper.Query : Swift.Hashable {}
+extension CurRatesNetwork.NetworkServiceHelper.Query : Swift.RawRepresentable {}
+extension CurRatesNetwork.NetworkServiceHelper.HTTPMethod : Swift.Equatable {}
+extension CurRatesNetwork.NetworkServiceHelper.HTTPMethod : Swift.Hashable {}
+extension CurRatesNetwork.NetworkServiceHelper.HTTPMethod : Swift.RawRepresentable {}

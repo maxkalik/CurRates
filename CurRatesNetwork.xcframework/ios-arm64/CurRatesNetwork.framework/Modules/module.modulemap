@@ -1,0 +1,11 @@
+framework module CurRatesNetwork {
+  umbrella header "CurRatesNetwork.h"
+
+  export *
+  module * { export * }
+}
+
+module CurRatesNetwork.Swift {
+    header "CurRatesNetwork-Swift.h"
+    requires objc
+}
