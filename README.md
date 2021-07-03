@@ -9,6 +9,7 @@ Implement simple currency rates check app using endpoint for currency rate.
 ## Features
 
 - [x] SwiftUI
+- [x] Combine
 - [x] MVVM
 - [x] without third parties
 - [x] Unit tests
