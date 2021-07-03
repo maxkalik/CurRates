@@ -45,13 +45,12 @@ extension Currency {
     
     func price(_ rateType: RateType, _ rateAction: RateAction, unit: Unit? = nil) -> String {
         let currencyType: CurrencyType = (rateType, rateAction)
-        if let currencyUnit = unit {
-            let rateIndex = currencyUnit == .USD ? 1 : 0
-            return getPrice(currencyType, rateIndex: rateIndex, currencyUnit: currencyUnit)
-        } else {
-            let rateIndex = self.unit == .USD ? 1 : 0
-            return getPrice(currencyType, rateIndex: rateIndex, currencyUnit: self.unit)
-        }
+        let rateIndex = getRateIndex(from: unit ?? self.unit)
+        return getPrice(currencyType, rateIndex: rateIndex, currencyUnit: self.unit)
+    }
+    
+    private func getRateIndex(from currencyUnit: Currency.Unit) -> Int {
+        return currencyUnit == .USD ? 1 : 0
     }
     
     private func getPrice(_ currencyType: CurrencyType, rateIndex: Int, currencyUnit: Unit) -> String {

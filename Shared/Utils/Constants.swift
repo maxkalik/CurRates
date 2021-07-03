@@ -17,5 +17,5 @@ struct Constants {
 }
 
 struct Settings {
-    static let currency: Currency.Unit = .EUR
+    static let currency: Currency.Unit = .USD
 }
