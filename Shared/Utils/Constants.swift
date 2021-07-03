@@ -8,7 +8,6 @@
 import Foundation
 
 struct Constants {
-    static let baseUrl                = "https://m.citadele.lv/cimo/p/currate"
     static let suiteName              = "group.maxkalik.com.CurRates.Currencies"
     static let widgetKind             = "CurRatesWidget"
     static let appStorageKey          = "currency"

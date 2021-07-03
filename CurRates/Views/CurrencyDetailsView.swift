@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CurRatesNetwork
 
 struct CurrencyDetailsView: View {
     

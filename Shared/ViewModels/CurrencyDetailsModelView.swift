@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurRatesNetwork
 
 struct CurrencyDetailsModelView: Identifiable {
     let id = UUID()

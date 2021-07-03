@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import CurRatesNetwork
 
 struct Provider: TimelineProvider {
     

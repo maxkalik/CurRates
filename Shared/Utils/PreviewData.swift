@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurRatesNetwork
 
 extension Rate {
     static let eur = Rate(currency: "EUR", description: "Euro", sellRate: "1.501", buyRate: "1.6", sellTransfer: "1.5138", buyTransfer: "1.5916")

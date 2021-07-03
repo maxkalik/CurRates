@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CurRatesNetwork
 
 struct CurrencyCellView: View {
     @ObservedObject var currency: CurrencyViewModel

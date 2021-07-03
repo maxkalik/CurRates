@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CurRatesNetwork
 
 class CurrenciesViewModel: ObservableObject {
     
@@ -25,7 +26,7 @@ class CurrenciesViewModel: ObservableObject {
         let location = Locale.current.location
 
         isLoading = true
-        cancellable = NetworkService
+        cancellable = CurRatesNetworkService
             .fetchCurrencies(with: [.language: language, .location: location])
             .catch { [self] failureReason -> Just<Currencies> in
                 isLoading = false

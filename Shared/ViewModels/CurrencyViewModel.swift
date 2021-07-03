@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WidgetKit
+import CurRatesNetwork
 
 class CurrencyViewModel: Identifiable, ObservableObject {
     
@@ -43,9 +44,9 @@ extension CurrencyViewModel {
 extension CurrencyViewModel {
     
     var details: [CurrencyDetailsModelView] {
-        let usd = CurrencyDetailsModelView(unit: .USD, currency: currency)
         let eur = CurrencyDetailsModelView(unit: .EUR, currency: currency)
-        return [ usd, eur ]
+        let usd = CurrencyDetailsModelView(unit: .USD, currency: currency)
+        return [ eur, usd ]
     }
 }
 

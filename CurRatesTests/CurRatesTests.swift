@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CurRatesNetwork
 @testable import CurRates
 
 class CurRatesTests: XCTestCase {

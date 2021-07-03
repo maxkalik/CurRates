@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import CurRatesNetwork
 
 public class CureRatesProvider {
     
@@ -17,7 +18,7 @@ public class CureRatesProvider {
         let language = Locale.current.language
         let location = Locale.current.location
         
-        cancellable = NetworkService
+        cancellable = CurRatesNetworkService
             .fetchCurrencies(with: [.language: language, .location: location])
             .catch { failureReason -> Just<Currencies> in
                 return Just(Currencies(data: [], success: false))
