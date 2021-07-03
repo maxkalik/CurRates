@@ -13,7 +13,7 @@ struct Currency: Decodable {
     let description: String
     let reverseUsdQuot: Bool
     let rates: [Rate]
-    var unit: Unit = .EUR
+    var unit: Unit = Settings.currency
     
     struct Details {
         var sell: String
@@ -46,11 +46,11 @@ extension Currency {
     func price(_ rateType: RateType, _ rateAction: RateAction, unit: Unit? = nil) -> String {
         let currencyType: CurrencyType = (rateType, rateAction)
         if let currencyUnit = unit {
-            let index = currencyUnit == .USD ? 1 : 0
-            return getPrice(currencyType, rateIndex: index, currencyUnit: currencyUnit)
+            let rateIndex = currencyUnit == .USD ? 1 : 0
+            return getPrice(currencyType, rateIndex: rateIndex, currencyUnit: currencyUnit)
         } else {
-            let index = self.unit == .USD ? 1 : 0
-            return getPrice(currencyType, rateIndex: index, currencyUnit: self.unit)
+            let rateIndex = self.unit == .USD ? 1 : 0
+            return getPrice(currencyType, rateIndex: rateIndex, currencyUnit: self.unit)
         }
     }
     
@@ -59,8 +59,8 @@ extension Currency {
         return String(format: "%.3f", reverseUsdQuot && currencyUnit == .USD ? 1 / floatValue : floatValue)
     }
     
-    private func getCurrency(_ type: CurrencyType, from rate: Rate) -> String? {
-        switch type {
+    private func getCurrency(_ currencyType: CurrencyType, from rate: Rate) -> String? {
+        switch currencyType {
         case (.rate, .buy):
             return rate.buyRate
         case (.rate, .sell):
