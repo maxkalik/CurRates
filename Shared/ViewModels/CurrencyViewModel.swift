@@ -56,7 +56,9 @@ extension CurrencyViewModel {
     }
     
     func getCurrencyId() -> String {
-        guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else { return Configuration.defaultCurrencyOnWidget }
+        guard let id = try? JSONDecoder().decode(String.self, from: self.currencyData) else {
+            return EnvironmentVariables.currencyOnWidget ?? Configuration.defaultCurrencyOnWidget
+        }
         return id
     }
     

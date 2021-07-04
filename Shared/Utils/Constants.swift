@@ -24,3 +24,7 @@ struct Configuration {
     static let currency: Currency.Unit = .USD
     static let defaultCurrencyOnWidget = "RUR"
 }
+
+struct EnvironmentVariables {
+    static let currencyOnWidget = ProcessInfo.processInfo.environment["currency_on_widget"]
+}
